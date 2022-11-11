@@ -1,0 +1,6 @@
+[user]
+        email = rorhcdream@gmail.com
+        name = Jaewoong Kim
+[core]
+        editor = vim
+        autocrlf = input
