@@ -1,10 +1,10 @@
 set -x
 
-BASEDIR=$(dirname $(dirname $(realpath $0)))
-FILES=(".vimrc" ".tmux.conf" ".zshrc" ".gitconfig")
+basedir=$(dirname $(dirname $(realpath $0)))
+files=(".vimrc" ".tmux.conf" ".zshrc" ".gitconfig")
 
-for FILENAME in "${FILES[@]}"; do
-	mv ~/$FILENAME ~/$FILENAME.old
-	ln -s $BASEDIR/$FILENAME ~/$FILENAME
+for filename in "${files[@]}"; do
+	mv ~/$filename ~/$filename.old
+	ln -s $basedir/$filename ~/$filename
 done
 
