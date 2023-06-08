@@ -1,35 +1,22 @@
+#!/bin/bash
+
+basedir=$(dirname $0)
+
 # machine configuration
 uname_out="$(uname -s)"
 case "${uname_out}" in
 	Linux*)		machine=Linux;;
 	Darwin*)    	machine=Mac;;
-	CYGWIN*)    	machine=Cygwin;;
- 	MINGW*)     	machine=MinGw;;
     	*)          	machine="UNKNOWN:${uname_out}"
-esac
-case $machine in
-	Linux)
-		pkg_manager="apt"
-		yflag="-y"
-		sudo="sudo"
-		;;
-	Mac)
-		pkg_manager="brew"
-		yflag=""
-		sudo=""
-		;;
-	*)
-		echo "$machine is not supported"
-		exit 1
 esac
 echo "Machine: $machine"
 
 # install packages
-packages=("git" "zsh" "curl" "tmux")
-[[ $machine == "Mac" ]] && packages+=("coreutils")	# for 'realpath' command
-echo "Installing packages: ${packages[@]}"
-$sudo $pkg_manager install ${packages[@]} $yflag || 
-{ echo "Failed"; exit 1; }
+packages=("git" "zsh" "curl" "tmux" "vim")
+if [ -x "$(command -v apk)" ];       then apk add --no-cache ${packages[@]} zsh-vcs
+elif [ -x "$(command -v apt-get)" ]; then apt install -y ${packages[@]} language-pack-en
+elif [ -x "$(command -v brew)" ];     then brew install ${packages[@]}
+else echo "FAILED TO INSTALL PACKAGE: Package manager not found."; fi
 
 # install oh-my-zsh and its extensions
 echo "Installing oh-my-zsh and its extensions"
@@ -43,7 +30,9 @@ echo "Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm ||
 { echo "Failed"; exit 1; }
 
+# instal pyenv
+curl https://pyenv.run | bash
+
 # make symbolic links of dotfiles
-BASEDIR=$(dirname $(realpath $0)) &&
-sh $BASEDIR/make_symlinks.sh
+$basedir/make_symlinks.sh
 

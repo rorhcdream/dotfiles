@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -x
 
 basedir=$(dirname $(dirname $(realpath $0)))
