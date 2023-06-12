@@ -1,7 +1,6 @@
 FROM ubuntu:20.04
 RUN apt update
 COPY . /dotfiles
-WORKDIR dotfiles
-RUN bash scripts/settings.sh
+RUN bash dotfiles/scripts/settings.sh
 CMD ["/bin/zsh"]
 

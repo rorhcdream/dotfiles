@@ -1,7 +1,6 @@
 FROM alpine:latest
 RUN apk add --no-cache --update bash
 COPY . /dotfiles
-WORKDIR dotfiles
-RUN bash scripts/settings.sh
+RUN bash dotfiles/scripts/settings.sh
 CMD ["/bin/zsh"]
 
