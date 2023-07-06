@@ -1,49 +1,42 @@
-" ===================== Vundle setup =======================
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" ===================== vim-plug setup =====================
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Make sure you use single quotes
 
 " plugins
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " colorschemes
-Plugin 'noahfrederick/vim-noctu'
-Plugin 'connorholyday/vim-snazzy'
-Plugin 'jeffkreeftmeijer/vim-dim'
-Plugin 'dracula/vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'arcticicestudio/nord-vim'
+Plug 'noahfrederick/vim-noctu'
+Plug 'connorholyday/vim-snazzy'
+Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'arcticicestudio/nord-vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" ===================== Vundle setup =======================
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+" ===================== vim-plug setup =====================
 
+let mapleader = ","
 
 " ===================== Plugin settings ====================
 
@@ -63,6 +56,10 @@ let g:airline_theme='bubblegum'
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 1
 
+" neoclide/coc.nvim
+source .vimrc_coc_nvim
+
+
 " ===================== Plugin settings ====================
 
 set nocompatible              " be iMproved, required
@@ -77,4 +74,3 @@ set showcmd
 set incsearch
 set hlsearch
 inoremap jj <ESC>
-let mapleader = ","
