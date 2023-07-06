@@ -18,6 +18,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
 
 " colorschemes
 Plug 'noahfrederick/vim-noctu'
