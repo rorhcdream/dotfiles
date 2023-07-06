@@ -30,6 +30,11 @@ echo "Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm ||
 { echo "Failed"; exit 1; }
 
+# install vim plugin manager
+echo "Installing vim plugin manager"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim ||
+{ echo "Failed"; exit 1; }
+
 # instal pyenv
 curl https://pyenv.run | bash
 
