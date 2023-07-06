@@ -59,7 +59,7 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 1
 
 " neoclide/coc.nvim
-source .vimrc_coc_nvim
+source ~/.vim/plugin/coc_nvim
 
 
 " ===================== Plugin settings ====================
