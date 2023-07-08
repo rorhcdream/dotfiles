@@ -27,8 +27,8 @@ call plug#begin()
 
 " plugins
 Plug 'easymotion/vim-easymotion'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -67,15 +67,22 @@ colorscheme snazzy
 
 " ===================== plugins ============================
 
-" vim-airline/vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" itchyny/lightline.vim 
+let g:lightline = {
+\ 'colorscheme': 'snazzy',
+\ 'tabline': {
+\   'left': [ ['buffers'] ],
+\   'right': [ ['close'] ]
+\ },
+\ 'component_expand': {
+\   'buffers': 'lightline#bufferline#buffers'
+\ },
+\ 'component_type': {
+\   'buffers': 'tabsel'
+\ }
+\ }
 
-
-" vim-airline/vim-airline-themes
-let g:airline_theme='bubblegum'
+set showtabline=2
 
 " scrooloose/nerdtree
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
