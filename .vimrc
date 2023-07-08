@@ -28,8 +28,8 @@ call plug#begin()
 
 " plugins
 Plug 'easymotion/vim-easymotion'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -45,6 +45,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'rakr/vim-one'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -68,21 +69,14 @@ colorscheme snazzy
 
 " ===================== plugins ============================
 
-" itchyny/lightline.vim 
-let g:lightline = {
-\ 'colorscheme': 'snazzy',
-\ 'tabline': {
-\   'left': [ ['buffers'] ],
-\   'right': [ ['close'] ]
-\ },
-\ 'component_expand': {
-\   'buffers': 'lightline#bufferline#buffers'
-\ },
-\ 'component_type': {
-\   'buffers': 'tabsel'
-\ }
-\ }
-set showtabline=2
+" vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" vim-airline/vim-airline-themes
+let g:airline_theme='one'
 
 " scrooloose/nerdtree
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
