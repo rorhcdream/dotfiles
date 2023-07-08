@@ -1,4 +1,17 @@
-" ===================== vim-plug setup =====================
+" ===================== default ============================
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+set mouse=a
+set number
+set ruler
+set showcmd
+set incsearch
+set hlsearch
+inoremap jj <ESC>
+let mapleader = ","
+
+" ===================== vim-plug ============================
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -36,13 +49,21 @@ call plug#end()
 " You can revert the settings after the call like so:
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
-" ===================== vim-plug setup =====================
 
-let mapleader = ","
+" ===================== colors =============================
+" Customize colors
+func! s:my_colors_setup() abort
+    hi PmenuSel guibg=#282a36 guisp=#282a36
+endfunc
 
-" ===================== Plugin settings ====================
+augroup colorscheme_override | au!
+    au ColorScheme * call s:my_colors_setup()
+augroup END
 
+" Set colorscheme
 colorscheme snazzy
+
+" ===================== plugins ============================
 
 " vim-airline/vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -62,17 +83,3 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 source ~/.vim/plugin/coc_nvim
 
 
-" ===================== Plugin settings ====================
-
-set nocompatible              " be iMproved, required
-
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
-
-set mouse=a
-set number
-set ruler
-set showcmd
-set incsearch
-set hlsearch
-inoremap jj <ESC>
