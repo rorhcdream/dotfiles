@@ -12,6 +12,7 @@ set tabstop=4
 set shiftwidth=4 
 inoremap jj <ESC>
 let mapleader = ","
+nnoremap gb :ls<CR>:b<Space>
 
 " ===================== vim-plug ============================
 call plug#begin()
@@ -81,7 +82,6 @@ let g:lightline = {
 \   'buffers': 'tabsel'
 \ }
 \ }
-
 set showtabline=2
 
 " scrooloose/nerdtree
