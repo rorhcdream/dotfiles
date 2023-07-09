@@ -14,6 +14,31 @@ inoremap jj <ESC>
 let mapleader = ","
 nnoremap gb :ls<CR>:b<Space>
 
+" ===================== plugins ============================
+
+" vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" vim-airline/vim-airline-themes
+let g:airline_theme='one'
+
+" scrooloose/nerdtree
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup = 1
+
+" neoclide/coc.nvim
+source ~/.vim/plugin/coc_nvim
+
+" github/copilot.vim
+inoremap <silent><script><expr> j<Tab> copilot#Accept("<End>")
+imap j] <Plug>(copilot-next)
+imap j[ <Plug>(copilot-prev)
+let g:copilot_no_tab_map = v:true
+let g:copilot_assume_mapped = v:true
+
 " ===================== vim-plug ============================
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -68,23 +93,5 @@ augroup END
 
 " Set colorscheme
 colorscheme snazzy
-
-" ===================== plugins ============================
-
-" vim-airline/vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-" vim-airline/vim-airline-themes
-let g:airline_theme='one'
-
-" scrooloose/nerdtree
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup = 1
-
-" neoclide/coc.nvim
-source ~/.vim/plugin/coc_nvim
 
 
