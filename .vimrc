@@ -36,6 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'ryanoasis/vim-devicons'
+Plug 'github/copilot.vim'
 
 " colorschemes
 Plug 'noahfrederick/vim-noctu'
@@ -47,7 +48,6 @@ Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
-Plug 'github/copilot.vim'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
