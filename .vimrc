@@ -11,8 +11,10 @@ set hlsearch
 set tabstop=4
 set shiftwidth=4 
 inoremap jj <ESC>
+tnoremap jj <C-w>N 
 let mapleader = ","
 nnoremap gb :ls<CR>:b<Space>
+nnoremap <leader>` :bo term<CR>
 
 " ===================== plugins ============================
 
