@@ -14,7 +14,8 @@ inoremap jj <ESC>
 tnoremap jj <C-w>N 
 let mapleader = ","
 nnoremap gb :ls<CR>:b<Space>
-nnoremap <leader>` :bo term<CR>
+nnoremap <leader>` :botright term<CR>
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 " ===================== plugins ============================
 
