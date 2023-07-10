@@ -3,7 +3,16 @@
 set -x
 
 basedir=$(dirname $(dirname $(realpath $0)))
-files=(".vimrc" ".tmux.conf" ".zshrc" ".gitconfig" ".vim/coc-settings.json", ".vim/plugin/coc_nvim")
+files=(
+	".vimrc"
+   	".tmux.conf"
+   	".zshrc"
+   	".gitconfig"
+   	".vim/coc-settings.json"
+   	".vim/plugin/coc_nvim"
+	".config/nvim/init.vim"
+)
+
 
 for filename in "${files[@]}"; do
 	mkdir -p ~/$(dirname $filename)

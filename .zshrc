@@ -119,6 +119,10 @@ prompt_context() {
   fi
 }
 
+# Set nvim as default editor
+export EDITOR='nvim'
+alias vim='nvim'
+
 
 # Configure pyenv
 export PYENV_ROOT="$HOME/.pyenv"

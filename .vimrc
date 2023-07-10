@@ -1,7 +1,10 @@
-" ===================== default ============================
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
+" ===================== default =============================
+if !has("nvim")
+	unlet! skip_defaults_vim
+	source $VIMRUNTIME/defaults.vim
+endif
 
+let mapleader = ","
 set mouse=a
 set number
 set ruler
@@ -11,13 +14,17 @@ set hlsearch
 set tabstop=4
 set shiftwidth=4 
 inoremap jj <ESC>
-tnoremap jj <C-w>N 
-let mapleader = ","
+if has("nvim")
+	tnoremap jj <C-\><C-n> 
+	nnoremap <leader>` :ToggleTerm<CR>
+else
+	tnoremap jj <C-w>N 
+	nnoremap <leader>` :botright term<CR>
+endif
 nnoremap gb :ls<CR>:b<Space>
-nnoremap <leader>` :botright term<CR>
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
-" ===================== plugins ============================
+" ===================== plugins before load =================
 
 " vim-airline/vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -66,6 +73,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'ryanoasis/vim-devicons'
 Plug 'github/copilot.vim'
 
+if has("nvim")
+	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
+endif
+
 " colorschemes
 Plug 'noahfrederick/vim-noctu'
 Plug 'connorholyday/vim-snazzy'
@@ -98,3 +109,7 @@ augroup END
 colorscheme snazzy
 
 
+" ===================== plugins after load =================
+if has("nvim")
+	lua require("toggleterm").setup()
+endif

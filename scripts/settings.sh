@@ -39,6 +39,18 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # instal pyenv
 curl https://pyenv.run | bash
 
+# install latest nvim
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && 
+chmod +x nvim.appimage && 
+sudo mv nvim.appimage /usr/local/bin/nvim ||
+{ echo "Failed"; exit 1; }
+
+# install nvim plugin manager
+echo "Installing nvim plugin manager"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' ||
+{ echo "Failed"; exit 1; }
+
 # make symbolic links of dotfiles
 $basedir/make_symlinks.sh
 
