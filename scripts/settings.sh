@@ -39,11 +39,17 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # instal pyenv
 curl https://pyenv.run | bash
 
-# install latest nvim
-wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && 
-chmod +x nvim.appimage && 
-sudo mv nvim.appimage /usr/local/bin/nvim ||
-{ echo "Failed"; exit 1; }
+# install nvim
+echo "Installing nvim"
+if [ $machine = "Mac" ]; then
+	brew install neovim ||
+	{ echo "Failed"; exit 1; }
+else 
+	wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && 
+	chmod +x nvim.appimage && 
+	sudo mv nvim.appimage /usr/local/bin/nvim ||
+	{ echo "Failed"; exit 1; }
+fi
 
 # install nvim plugin manager
 echo "Installing nvim plugin manager"
