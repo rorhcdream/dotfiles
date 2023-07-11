@@ -15,6 +15,8 @@ set tabstop=4
 set shiftwidth=4 
 inoremap jj <ESC>
 if has("nvim")
+	inoremap <leader>` <ESC>:ToggleTerm<CR>
+	tnoremap <leader>` <C-\><C-n>:ToggleTerm<CR>
 	tnoremap jj <C-\><C-n> 
 	nnoremap <leader>` :ToggleTerm<CR>
 else
