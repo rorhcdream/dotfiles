@@ -60,3 +60,10 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # make symbolic links of dotfiles
 $basedir/make_symlinks.sh
 
+# install vim plugins
+echo "Installing vim plugins"
+vim +PlugInstall +qall ||
+{ echo "Failed"; exit 1; }
+
+
+
