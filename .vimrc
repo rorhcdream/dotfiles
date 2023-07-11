@@ -17,10 +17,10 @@ imap hh <Plug>esc
 tmap hh <Plug>esc 
 inoremap <Plug>esc <ESC>
 if has("nvim")
-	inoremap <leader>` <ESC>:ToggleTerm<CR>
-	tnoremap <leader>` <C-\><C-n>:ToggleTerm<CR>
+	inoremap <leader>` <ESC>:ToggleTerm size=20<CR>
+	tnoremap <leader>` <C-\><C-n>:ToggleTerm size=20<CR>
 	tnoremap <Plug>esc <C-\><C-n> 
-	nnoremap <leader>` :ToggleTerm<CR>
+	nnoremap <leader>` :ToggleTerm size=20<CR>
 else
 	tnoremap <Plug>esc <C-w>N 
 	nnoremap <leader>` :botright term<CR>
