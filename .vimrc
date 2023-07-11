@@ -12,17 +12,17 @@ set showcmd
 set incsearch
 set hlsearch
 set tabstop=4
-set shiftwidth=4 
+set shiftwidth=4
 imap hh <Plug>esc
-tmap hh <Plug>esc 
+tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
 if has("nvim")
 	inoremap <leader>` <ESC>:ToggleTerm size=20<CR>
 	tnoremap <leader>` <C-\><C-n>:ToggleTerm size=20<CR>
-	tnoremap <Plug>esc <C-\><C-n> 
+	tnoremap <Plug>esc <C-\><C-n>
 	nnoremap <leader>` :ToggleTerm size=20<CR>
 else
-	tnoremap <Plug>esc <C-w>N 
+	tnoremap <Plug>esc <C-w>N
 	nnoremap <leader>` :botright term<CR>
 endif
 nnoremap gb :ls<CR>:b<Space>
@@ -45,7 +45,7 @@ nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>
 autocmd VimEnter * NERDTree | wincmd p
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+			\ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " neoclide/coc.nvim
 source ~/.vim/plugin/coc_nvim
@@ -128,11 +128,11 @@ endif
 " ===================== colors =============================
 " Customize colors
 func! s:my_colors_setup() abort
-    hi PmenuSel guibg=#282a36 guisp=#282a36
+	hi PmenuSel guibg=#282a36 guisp=#282a36
 endfunc
 
 augroup colorscheme_override | au!
-    au ColorScheme * call s:my_colors_setup()
+	au ColorScheme * call s:my_colors_setup()
 augroup END
 
 " Set colorscheme
