@@ -13,14 +13,16 @@ set incsearch
 set hlsearch
 set tabstop=4
 set shiftwidth=4 
-inoremap jj <ESC>
+imap hh <Plug>esc
+tmap hh <Plug>esc 
+inoremap <Plug>esc <ESC>
 if has("nvim")
 	inoremap <leader>` <ESC>:ToggleTerm<CR>
 	tnoremap <leader>` <C-\><C-n>:ToggleTerm<CR>
-	tnoremap jj <C-\><C-n> 
+	tnoremap <Plug>esc <C-\><C-n> 
 	nnoremap <leader>` :ToggleTerm<CR>
 else
-	tnoremap jj <C-w>N 
+	tnoremap <Plug>esc <C-w>N 
 	nnoremap <leader>` :botright term<CR>
 endif
 nnoremap gb :ls<CR>:b<Space>
