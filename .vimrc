@@ -40,8 +40,12 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='one'
 
 " scrooloose/nerdtree
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup = 1
+nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " neoclide/coc.nvim
 source ~/.vim/plugin/coc_nvim
@@ -52,6 +56,16 @@ imap j] <Plug>(copilot-next)
 imap j[ <Plug>(copilot-prev)
 let g:copilot_no_tab_map = v:true
 let g:copilot_assume_mapped = v:true
+
+" ctrlpvim/ctrlp.vim
+let g:ctrlp_show_hidden=1
+let g:ctrlp_cmd='CtrlP :pwd'
+
+" rmagatti/auto-session
+if has("nvim")
+	let g:auto_session_pre_save_cmds = ["bw NERD_tree"]
+	let g:auto_session_post_restore_cmds = ["NERDTreeMirrorToggle", "wincmd p"]
+endif
 
 " ===================== vim-plug ============================
 call plug#begin()
@@ -79,6 +93,7 @@ Plug 'github/copilot.vim'
 
 if has("nvim")
 	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
+	Plug 'rmagatti/auto-session'
 endif
 
 " colorschemes
@@ -99,6 +114,12 @@ call plug#end()
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
 
+" ===================== plugins after load =================
+if has("nvim")
+	lua require("toggleterm").setup()
+	lua require("auto-session").setup()
+endif
+
 " ===================== colors =============================
 " Customize colors
 func! s:my_colors_setup() abort
@@ -112,8 +133,3 @@ augroup END
 " Set colorscheme
 colorscheme snazzy
 
-
-" ===================== plugins after load =================
-if has("nvim")
-	lua require("toggleterm").setup()
-endif
