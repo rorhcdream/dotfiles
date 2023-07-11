@@ -67,6 +67,10 @@ if has("nvim")
 	let g:auto_session_post_restore_cmds = ["NERDTreeMirrorToggle", "wincmd p"]
 endif
 
+" vim-autoformat/vim-autoformat
+let g:python3_host_prog="python"
+autocmd BufWrite * :Autoformat
+
 " ===================== vim-plug ============================
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -90,6 +94,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'ryanoasis/vim-devicons'
 Plug 'github/copilot.vim'
+Plug 'vim-autoformat/vim-autoformat'
 
 if has("nvim")
 	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
