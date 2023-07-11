@@ -11,6 +11,7 @@ files=(
    	".vim/coc-settings.json"
    	".vim/plugin/coc_nvim"
 	".config/nvim/init.vim"
+	".config/nvim/coc-configs.json"
 )
 
 
