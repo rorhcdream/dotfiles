@@ -1,7 +1,7 @@
 " ===================== default =============================
 if !has("nvim")
-	unlet! skip_defaults_vim
-	source $VIMRUNTIME/defaults.vim
+    unlet! skip_defaults_vim
+    source $VIMRUNTIME/defaults.vim
 endif
 
 let mapleader = ","
@@ -13,17 +13,18 @@ set incsearch
 set hlsearch
 set tabstop=4
 set shiftwidth=4
+set expandtab
 imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
 if has("nvim")
-	inoremap <leader>` <ESC>:ToggleTerm size=20<CR>
-	tnoremap <leader>` <C-\><C-n>:ToggleTerm size=20<CR>
-	tnoremap <Plug>esc <C-\><C-n>
-	nnoremap <leader>` :ToggleTerm size=20<CR>
+    inoremap <leader>` <ESC>:ToggleTerm size=20<CR>
+    tnoremap <leader>` <C-\><C-n>:ToggleTerm size=20<CR>
+    tnoremap <Plug>esc <C-\><C-n>
+    nnoremap <leader>` :ToggleTerm size=20<CR>
 else
-	tnoremap <Plug>esc <C-w>N
-	nnoremap <leader>` :botright term<CR>
+    tnoremap <Plug>esc <C-w>N
+    nnoremap <leader>` :botright term<CR>
 endif
 nnoremap gb :ls<CR>:b<Space>
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
@@ -45,7 +46,7 @@ nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>
 autocmd VimEnter * NERDTree | wincmd p
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-			\ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+            \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " neoclide/coc.nvim
 source ~/.vim/plugin/coc_nvim
@@ -63,8 +64,8 @@ let g:ctrlp_cmd='CtrlP :pwd'
 
 " rmagatti/auto-session
 if has("nvim")
-	let g:auto_session_pre_save_cmds = ["bw NERD_tree"]
-	let g:auto_session_post_restore_cmds = ["NERDTreeMirrorToggle", "wincmd p"]
+    let g:auto_session_pre_save_cmds = ["bw NERD_tree"]
+    let g:auto_session_post_restore_cmds = ["NERDTreeMirrorToggle", "wincmd p"]
 endif
 
 " vim-autoformat/vim-autoformat
@@ -97,8 +98,8 @@ Plug 'github/copilot.vim'
 Plug 'vim-autoformat/vim-autoformat'
 
 if has("nvim")
-	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
-	Plug 'rmagatti/auto-session'
+    Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
+    Plug 'rmagatti/auto-session'
 endif
 
 " colorschemes
@@ -121,18 +122,18 @@ call plug#end()
 
 " ===================== plugins after load =================
 if has("nvim")
-	lua require("toggleterm").setup()
-	lua require("auto-session").setup()
+    lua require("toggleterm").setup()
+    lua require("auto-session").setup()
 endif
 
 " ===================== colors =============================
 " Customize colors
 func! s:my_colors_setup() abort
-	hi PmenuSel guibg=#282a36 guisp=#282a36
+    hi PmenuSel guibg=#282a36 guisp=#282a36
 endfunc
 
 augroup colorscheme_override | au!
-	au ColorScheme * call s:my_colors_setup()
+    au ColorScheme * call s:my_colors_setup()
 augroup END
 
 " Set colorscheme
