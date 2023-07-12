@@ -70,7 +70,15 @@ endif
 
 " vim-autoformat/vim-autoformat
 let g:python3_host_prog="python"
-autocmd BufWrite * :Autoformat
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+function! Autoformat()
+    if get(b:, "autoformat_enable", v:true)
+        :Autoformat
+    endif
+endfunction
+autocmd BufWrite * call Autoformat()
+autocmd FileType sql let b:autoformat_enable=v:false
 
 " ===================== vim-plug ============================
 call plug#begin()
