@@ -12,7 +12,7 @@ esac
 echo "Machine: $machine"
 
 # install packages
-packages=("git" "zsh" "curl" "tmux" "vim")
+packages=("git" "zsh" "curl" "tmux" "vim" "ripgrep")
 if [ -x "$(command -v apk)" ];       then apk add --no-cache ${packages[@]} zsh-vcs
 elif [ -x "$(command -v apt-get)" ]; then apt update && apt install -y ${packages[@]} language-pack-en
 elif [ -x "$(command -v brew)" ];     then brew install ${packages[@]}

@@ -80,6 +80,13 @@ endfunction
 autocmd BufWrite * call Autoformat()
 autocmd FileType sql let b:autoformat_enable=v:false
 
+" junegunn/fzf
+command! -bang -nargs=? RG
+  \ call fzf#vim#grep2(
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case', <q-args>,
+  \   fzf#vim#with_preview(), <bang>0)
+nnoremap <leader>f :RG<CR>
+
 " ===================== vim-plug ============================
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -104,6 +111,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'ryanoasis/vim-devicons'
 Plug 'github/copilot.vim'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 if has("nvim")
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
