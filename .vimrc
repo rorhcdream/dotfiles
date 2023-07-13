@@ -114,7 +114,6 @@ Plug 'junegunn/fzf.vim'
 if has("nvim")
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
     Plug 'rmagatti/auto-session'
-    Plug 'samjwill/nvim-unception'
 endif
 
 " colorschemes
