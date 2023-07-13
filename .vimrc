@@ -18,10 +18,7 @@ imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
 if has("nvim")
-    inoremap <leader>` <ESC>:ToggleTerm size=20<CR>
-    tnoremap <leader>` <C-\><C-n>:ToggleTerm size=20<CR>
     tnoremap <Plug>esc <C-\><C-n>
-    nnoremap <leader>` :ToggleTerm size=20<CR>
 else
     tnoremap <Plug>esc <C-w>N
     nnoremap <leader>` :botright term<CR>
@@ -140,7 +137,12 @@ call plug#end()
 
 " ===================== plugins after load =================
 if has("nvim")
-    lua require("toggleterm").setup()
+    lua require("toggleterm").setup{
+    \     open_mapping = [[<leader>`]],
+    \     size = 20,
+    \     insert_mappings = true,
+    \     terminal_mappings = true,
+    \ }
     lua require("auto-session").setup()
 endif
 
