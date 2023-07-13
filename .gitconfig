@@ -2,7 +2,7 @@
         email = rorhcdream@gmail.com
         name = Jaewoong Kim
 [core]
-        editor = vim
+        editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
         autocrlf = input
 [push]
 	autoSetupRemote = true
