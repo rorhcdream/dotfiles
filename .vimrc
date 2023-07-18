@@ -49,9 +49,9 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 source ~/.vim/plugin/coc_nvim
 
 " github/copilot.vim
-inoremap <silent><script><expr> j<Tab> copilot#Accept("<End>")
-imap j] <Plug>(copilot-next)
-imap j[ <Plug>(copilot-prev)
+inoremap <silent><script><expr> h<Tab> copilot#Accept("<End>")
+imap h] <Plug>(copilot-next)
+imap h[ <Plug>(copilot-prev)
 let g:copilot_no_tab_map = v:true
 let g:copilot_assume_mapped = v:true
 
