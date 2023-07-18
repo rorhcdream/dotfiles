@@ -110,6 +110,7 @@ Plug 'github/copilot.vim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
 
 if has("nvim")
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
