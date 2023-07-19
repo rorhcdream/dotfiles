@@ -76,6 +76,9 @@ function! Autoformat()
 endfunction
 autocmd BufWrite * call Autoformat()
 autocmd FileType sql let b:autoformat_enable=v:false
+let g:formatdef_isort = '"isort -"'
+let g:formatters_python = ['black', 'isort']
+let g:run_all_formatters_python = 1
 
 " junegunn/fzf
 command! -bang -nargs=? RG
