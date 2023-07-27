@@ -114,6 +114,7 @@ Plug 'vim-autoformat/vim-autoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
+Plug 'samjwill/nvim-unception'
 
 if has("nvim")
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
