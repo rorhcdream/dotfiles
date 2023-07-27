@@ -17,14 +17,15 @@ set expandtab
 imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
-if has("nvim")
-    tnoremap <Plug>esc <C-\><C-n>
-else
-    tnoremap <Plug>esc <C-w>N
-    nnoremap <leader>` :botright term<CR>
-endif
+tnoremap <Plug>esc <C-\><C-n>
 nnoremap gb :ls<CR>:b<Space>
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
+nmap <leader>` :call TermToggle()<CR>
+imap <leader>` <Plug>esc:call TermToggle()<CR>
+tmap <leader>` <Plug>esc:call TermToggle()<CR>
+
+" ===================== local scripts =======================
+source ~/.vim/scripts/toggle_terminal.vim
 
 " ===================== plugins before load =================
 
@@ -39,14 +40,18 @@ let g:airline_theme='one'
 
 " scrooloose/nerdtree
 nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>
-" Start NERDTree and put the cursor back in the other window.
-" autocmd VimEnter * NERDTree | wincmd p
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-            \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+augroup NerdTreeAuGroup
+    autocmd!
+    " " Start NERDTree and put the cursor back in the other window.
+    " autocmd VimEnter * NERDTree | wincmd p
+    " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+                \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+augroup END
 
 " neoclide/coc.nvim
-source ~/.vim/plugin/coc_nvim
+source ~/.vim/scripts/coc_nvim.vim
 
 " github/copilot.vim
 inoremap <silent><script><expr> h<Tab> copilot#Accept("<End>")
@@ -117,7 +122,6 @@ Plug 'tpope/vim-commentary'
 Plug 'samjwill/nvim-unception'
 
 if has("nvim")
-    Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.6.0'}
     Plug 'rmagatti/auto-session'
 endif
 
@@ -141,12 +145,6 @@ call plug#end()
 
 " ===================== plugins after load =================
 if has("nvim")
-    lua require("toggleterm").setup{
-    \     open_mapping = [[<leader>`]],
-    \     size = 20,
-    \     insert_mappings = true,
-    \     terminal_mappings = true,
-    \ }
     lua require("auto-session").setup()
 endif
 
