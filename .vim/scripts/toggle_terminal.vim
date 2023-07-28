@@ -47,6 +47,9 @@ endfunction
 function! s:OnWinEnter()
     if bufnr('%') == s:term_buf
         execute 'resize ' . s:term_height
+        if g:term_insert_mode == 1
+            startinsert!
+        endif
     endif
 endfunction
 
