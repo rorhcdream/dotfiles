@@ -67,7 +67,7 @@ let g:ctrlp_cmd='CtrlP :pwd'
 
 " rmagatti/auto-session
 if has("nvim")
-    let g:auto_session_pre_save_cmds = ["bw NERD_tree"]
+    let g:auto_session_pre_save_cmds = ["silent! bw NERD_tree"]
     "let g:auto_session_post_restore_cmds = ["NERDTreeMirrorToggle", "wincmd p"]
 endif
 
