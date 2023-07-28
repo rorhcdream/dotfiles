@@ -1,8 +1,13 @@
 let s:term_buf = 0
 let s:term_height = 20
 let s:last_window = 0
+let g:term_insert_mode = 1
 
-function! TermToggle()
+nmap <Plug>TermToggle :call <SID>TermToggle()<CR>
+imap <Plug>TermToggle <Plug>esc:call <SID>TermToggle()<CR>
+tmap <Plug>TermToggle <Plug>esc:let g:term_insert_mode=1<CR>:call <SID>TermToggle()<CR>
+
+function! s:TermToggle()
     if win_gotoid(<SID>GetFirstWindowNumberForBuffer(s:term_buf))
         hide
         call win_gotoid(s:last_window)
@@ -19,7 +24,9 @@ function! TermToggle()
             set norelativenumber
             set signcolumn=no
         endtry
-        startinsert!
+        if g:term_insert_mode
+            startinsert!
+        endif
         let s:term_win = win_getid()
     endif
 endfunction
@@ -43,7 +50,18 @@ function! s:OnWinEnter()
     endif
 endfunction
 
+function! s:OnModeChanged()
+    if bufnr('%') == s:term_buf
+        if v:event['old_mode'] == 't' && v:event['new_mode'] == 'nt'
+            let g:term_insert_mode = 0
+        elseif v:event['new_mode'] == 't'
+            let g:term_insert_mode = 1
+        endif
+    endif
+endfunction
+
 augroup ResizeTermWindowOnEnter
     autocmd!
     autocmd WinEnter * call <SID>OnWinEnter()
+    autocmd ModeChanged * call <SID>OnModeChanged()
 augroup END

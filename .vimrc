@@ -20,9 +20,10 @@ inoremap <Plug>esc <ESC>
 tnoremap <Plug>esc <C-\><C-n>
 nnoremap gb :ls<CR>:b<Space>
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
-nmap <leader>` :call TermToggle()<CR>
-imap <leader>` <Plug>esc:call TermToggle()<CR>
-tmap <leader>` <Plug>esc:call TermToggle()<CR>
+imap <leader>` <Plug>TermToggle
+nmap <leader>` <Plug>TermToggle
+tmap <leader>` <Plug>TermToggle
+
 
 " ===================== local scripts =======================
 source ~/.vim/scripts/toggle_terminal.vim
