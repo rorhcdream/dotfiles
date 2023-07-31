@@ -41,7 +41,16 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='one'
 
 " scrooloose/nerdtree
-nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>
+nmap <silent> <leader>t <Plug>NERDTreeFindOrToggle
+nmap <Plug>NERDTreeFindOrToggle :call g:NERDTreeFindOrToggle()<CR>
+
+function! g:NERDTreeFindOrToggle()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        exec "NERDTreeClose"
+    else
+        exec "NERDTreeFind"
+    endif
+endfunction
 
 augroup NerdTreeAuGroup
     autocmd!
