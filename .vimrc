@@ -15,6 +15,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set foldmethod=syntax
+set foldlevel=99
 imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
