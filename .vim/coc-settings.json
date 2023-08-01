@@ -1,5 +1,6 @@
 {
     "suggest.noselect": true,
+    "diagnostic.refreshOnInsertMode": true,
     "languageserver": {
         "csharp-ls": {
             "command": "csharp-ls",
