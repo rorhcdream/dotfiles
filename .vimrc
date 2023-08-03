@@ -78,7 +78,15 @@ let g:ctrlp_cmd='CtrlP :pwd'
 
 " rmagatti/auto-session
 if has("nvim")
-    let g:auto_session_pre_save_cmds = ["silent! bw NERD_tree"]
+    function! g:WipeAllTerminalBuffers()
+        for bufnr in range(1, bufnr('$'))
+            if getbufvar(bufnr, "&buftype") == "terminal"
+                execute 'bwipeout! ' . bufnr
+            endif
+        endfor
+    endfunction
+
+    let g:auto_session_pre_save_cmds = ["silent! bw NERD_tree", "call g:WipeAllTerminalBuffers()"]
     "let g:auto_session_post_restore_cmds = ["NERDTreeMirrorToggle", "wincmd p"]
 endif
 
