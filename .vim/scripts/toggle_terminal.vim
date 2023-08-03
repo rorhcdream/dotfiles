@@ -17,6 +17,7 @@ function! s:TermToggle()
         exec "resize " . s:term_height
         try
             exec "buffer " . s:term_buf
+            bwipeout #
         catch
             terminal
             let s:term_buf = bufnr("")
