@@ -73,6 +73,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(
     git
     fzf
+    fzf-tab
     zsh-autosuggestions
     zsh-syntax-highlighting
     tmux
