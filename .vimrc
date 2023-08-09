@@ -71,6 +71,7 @@ imap h] <Plug>(copilot-next)
 imap h[ <Plug>(copilot-prev)
 let g:copilot_no_tab_map = v:true
 let g:copilot_assume_mapped = v:true
+let g:copilot_filetypes = {'yaml': v:true}
 
 " ctrlpvim/ctrlp.vim
 let g:ctrlp_show_hidden=1
