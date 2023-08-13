@@ -43,6 +43,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='one'
 
 " scrooloose/nerdtree
+let NERDTreeShowHidden=1
 nmap <silent> <leader>t <Plug>NERDTreeFindOrToggle
 nmap <Plug>NERDTreeFindOrToggle :call g:NERDTreeFindOrToggle()<CR>
 
