@@ -74,10 +74,6 @@ let g:copilot_no_tab_map = v:true
 let g:copilot_assume_mapped = v:true
 let g:copilot_filetypes = {'yaml': v:true}
 
-" ctrlpvim/ctrlp.vim
-let g:ctrlp_show_hidden=1
-let g:ctrlp_cmd='CtrlP :pwd'
-
 " rmagatti/auto-session
 if has("nvim")
     function! g:WipeAllTerminalBuffers()
@@ -113,6 +109,7 @@ command! -bang -nargs=? RG
   \   'rg --hidden --column --line-number --no-heading --color=always --smart-case', <q-args>,
   \   fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>f :RG<CR>
+nnoremap <C-p> :Files<CR>
 
 " ===================== vim-plug ============================
 call plug#begin()
@@ -133,7 +130,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'ryanoasis/vim-devicons'
 Plug 'github/copilot.vim'
