@@ -74,6 +74,7 @@ plugins=(
     git
     fzf
     fzf-tab
+    docker
     zsh-autosuggestions
     zsh-syntax-highlighting
     tmux
