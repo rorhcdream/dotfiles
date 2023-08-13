@@ -47,8 +47,12 @@ nmap <silent> <leader>t <Plug>NERDTreeFindOrToggle
 nmap <Plug>NERDTreeFindOrToggle :call g:NERDTreeFindOrToggle()<CR>
 
 function! g:NERDTreeFindOrToggle()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen() && &filetype == 'nerdtree'
         exec "NERDTreeClose"
+    elseif bufname('%') == ''
+        exec "NERDTree"
+    elseif exists('b:terminal_job_id')
+        " ignore terminal buffer
     else
         exec "NERDTreeFind"
     endif
