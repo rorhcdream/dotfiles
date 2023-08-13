@@ -16,6 +16,7 @@ set shiftwidth=4
 set expandtab
 set foldmethod=syntax
 set foldlevel=99
+set updatetime=100
 imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
@@ -141,6 +142,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'samjwill/nvim-unception'
+Plug 'airblade/vim-gitgutter'
 
 if has("nvim")
     Plug 'rmagatti/auto-session'
