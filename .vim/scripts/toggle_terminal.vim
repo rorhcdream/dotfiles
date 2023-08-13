@@ -8,10 +8,10 @@ imap <Plug>TermToggle <Plug>esc:call <SID>TermToggle()<CR>
 tmap <Plug>TermToggle <Plug>esc:let g:term_insert_mode=1<CR>:call <SID>TermToggle()<CR>
 
 function! s:TermToggle()
-    if win_gotoid(<SID>GetFirstWindowNumberForBuffer(s:term_buf))
+    if bufnr('%') == s:term_buf
         hide
         call win_gotoid(s:last_window)
-    else
+    elseif !win_gotoid(<SID>GetFirstWindowNumberForBuffer(s:term_buf))
         let s:last_window = win_getid()
         botright new
         exec "resize " . s:term_height
@@ -64,7 +64,7 @@ function! s:OnModeChanged()
     endif
 endfunction
 
-augroup ResizeTermWindowOnEnter
+augroup ToggleTerminalAuGroup
     autocmd!
     autocmd WinEnter * call <SID>OnWinEnter()
     autocmd ModeChanged * call <SID>OnModeChanged()
