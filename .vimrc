@@ -110,7 +110,7 @@ let g:run_all_formatters_python = 1
 " junegunn/fzf
 command! -bang -nargs=? RG
   \ call fzf#vim#grep2(
-  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case', <q-args>,
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case --ignore-file .git --', <q-args>,
   \   fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>f :RG<CR>
 nnoremap <C-p> :Files<CR>
