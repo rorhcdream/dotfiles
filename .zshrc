@@ -72,7 +72,6 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    fzf
     fzf-tab
     docker
     zsh-autosuggestions
