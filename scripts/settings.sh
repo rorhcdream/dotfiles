@@ -53,6 +53,10 @@ else
     nvm install node
 fi
 
+# install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+yes | ~/.fzf/install
+
 # install nvim
 echo "Installing nvim"
 if [ $machine = "Mac" ]; then
