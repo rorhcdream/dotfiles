@@ -17,6 +17,8 @@ set expandtab
 set foldmethod=syntax
 set foldlevel=99
 set updatetime=100
+set ignorecase
+set smartcase
 imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
