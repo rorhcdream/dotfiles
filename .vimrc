@@ -28,6 +28,8 @@ nnoremap <silent> <CR> :nohlsearch<CR><CR>
 imap <leader>` <Plug>TermToggle
 nmap <leader>` <Plug>TermToggle
 tmap <leader>` <Plug>TermToggle
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 
 
 " ===================== local scripts =======================
