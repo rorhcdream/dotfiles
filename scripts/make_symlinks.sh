@@ -12,7 +12,7 @@ files=(
     ".vim/scripts/coc_nvim.vim"
     ".vim/scripts/toggle_terminal.vim"
     ".config/nvim/init.vim"
-    ".config/nvim/coc-configs.json"
+    ".config/nvim/coc-settings.json"
     ".config/gh/config.yml"
 )
 
