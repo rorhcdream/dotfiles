@@ -82,6 +82,11 @@ imap h[ <Plug>(copilot-prev)
 let g:copilot_no_tab_map = v:true
 let g:copilot_assume_mapped = v:true
 let g:copilot_filetypes = {'yaml': v:true}
+augroup copilot
+    autocmd!
+    " disable copilot in PS
+    autocmd BufEnter ~/PS/* let b:copilot_enabled = v:false
+augroup END
 
 " rmagatti/auto-session
 if has("nvim")
