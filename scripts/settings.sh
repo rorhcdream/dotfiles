@@ -66,7 +66,7 @@ elif [ $os_id = "alpine" ]; then
 else
     wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
     tar -xzvf nvim-linux64.tar.gz
-    (test -e /nvim-linux64 || $sudo -mv nvim-linux64 /; true)
+    (test -e /nvim-linux64 || $sudo mv nvim-linux64 /; true)
     $sudo ln -s /nvim-linux64/bin/nvim /usr/local/bin/nvim
 fi
 
