@@ -116,6 +116,10 @@ autocmd FileType sql let b:autoformat_enable=v:false
 let g:formatdef_isort = '"isort -"'
 let g:formatters_python = ['black', 'isort']
 let g:run_all_formatters_python = 1
+let g:formatdef_prettier = '"prettier --stdin-filepath ".expand("%:p")'
+let g:formatters_typescript = ['prettier']
+let g:formatters_typescriptreact = ['prettier']
+
 
 " junegunn/fzf
 command! -bang -nargs=? RG
