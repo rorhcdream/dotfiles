@@ -111,8 +111,11 @@ function! Autoformat()
         :Autoformat
     endif
 endfunction
-autocmd BufWrite * call Autoformat()
-autocmd FileType sql let b:autoformat_enable=v:false
+augroup autoformat
+    autocmd!
+    autocmd BufWrite * call Autoformat()
+    autocmd FileType sql let b:autoformat_enable=v:false
+augroup END
 let g:formatdef_isort = '"isort -"'
 let g:formatters_python = ['black', 'isort']
 let g:run_all_formatters_python = 1
