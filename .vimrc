@@ -34,6 +34,7 @@ inoremap <c-w> <c-g>u<c-w>
 
 " ===================== local scripts =======================
 source ~/.vim/scripts/toggle_terminal.vim
+source ~/.vim/scripts/clipboard_yank.vim
 
 " ===================== plugins before load =================
 
