@@ -12,5 +12,10 @@
             "filetypes": ["proto"],
             "rootPatterns": [".git"]
         }
-    }
+    },
+    "workspace.ignoredFolders": [
+      "$HOME",
+      "$HOME/.cargo/**",
+      "$HOME/.rustup/**"
+    ]
 }
