@@ -1,4 +1,3 @@
-
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
@@ -75,8 +74,8 @@ augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " Update signature help on every keystroke in insert mode
+  autocmd TextChangedI * call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying code actions to the selected code block

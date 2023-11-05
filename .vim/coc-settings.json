@@ -17,5 +17,6 @@
       "$HOME",
       "$HOME/.cargo/**",
       "$HOME/.rustup/**"
-    ]
+    ],
+    "rust-analyzer.completion.callable.snippets": "add_parentheses"
 }
