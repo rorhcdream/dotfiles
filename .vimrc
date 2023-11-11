@@ -133,6 +133,9 @@ command! -bang -nargs=? RG
 nnoremap <leader>f :RG<CR>
 nnoremap <C-p> :Files<CR>
 
+" mbbill/undotree
+nnoremap <leader>u :UndotreeToggle<CR>
+
 " ===================== vim-plug ============================
 call plug#begin()
 " The default plugin directory will be as follows:
