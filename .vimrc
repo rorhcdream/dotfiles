@@ -165,6 +165,7 @@ Plug 'tpope/vim-commentary'
 Plug 'samjwill/nvim-unception'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-sleuth'
 
 if has("nvim")
     Plug 'rmagatti/auto-session'
