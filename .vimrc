@@ -21,6 +21,7 @@ set ignorecase
 set smartcase
 set undodir=~/.vim/undodir
 set undofile
+set scrolloff=5
 imap hh <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
@@ -32,6 +33,9 @@ nmap <leader>` <Plug>TermToggle
 tmap <leader>` <Plug>TermToggle
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap Q <nop>
 
 
 " ===================== local scripts =======================
