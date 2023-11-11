@@ -161,6 +161,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'samjwill/nvim-unception'
 Plug 'airblade/vim-gitgutter'
+Plug 'mbbill/undotree'
 
 if has("nvim")
     Plug 'rmagatti/auto-session'
