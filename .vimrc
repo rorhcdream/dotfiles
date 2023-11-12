@@ -44,6 +44,11 @@ source ~/.vim/scripts/clipboard_yank.vim
 
 " ===================== plugins before load =================
 
+" easymotion/vim-easymotion
+nnoremap S <Plug>(easymotion-s2)
+vnoremap S <Plug>(easymotion-s2)
+let g:EasyMotion_smartcase = 1
+
 " vim-airline/vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
