@@ -177,6 +177,7 @@ Plug 'samjwill/nvim-unception'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-sleuth'
+Plug 'AndrewRadev/splitjoin.vim'
 
 if has("nvim")
     Plug 'rmagatti/auto-session'
