@@ -23,6 +23,8 @@ set undodir=~/.vim/undodir
 set undofile
 set scrolloff=5
 imap hh <Plug>esc
+imap jk <Plug>esc
+imap kj <Plug>esc
 tmap hh <Plug>esc
 inoremap <Plug>esc <ESC>
 tnoremap <Plug>esc <C-\><C-n>
