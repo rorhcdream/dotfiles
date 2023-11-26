@@ -6,5 +6,7 @@
         autocrlf = input
 [push]
 	autoSetupRemote = true
+[alias]
+        push-force = push --force-with-lease --force-if-includes
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
