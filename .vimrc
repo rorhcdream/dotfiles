@@ -181,6 +181,24 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
 
+" gelguy/wilder.nvim
+if has('nvim')
+  function! UpdateRemotePlugins(...)
+    " Needed to refresh runtime files
+    let &rtp=&rtp
+    UpdateRemotePlugins
+  endfunction
+
+  Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
+else
+  Plug 'gelguy/wilder.nvim'
+
+  " To use Python remote plugin features in Vim, can be skipped
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" rmagatti/auto-session
 if has("nvim")
     Plug 'rmagatti/auto-session'
 endif
@@ -204,9 +222,14 @@ call plug#end()
 "   syntax off            " Disable syntax highlighting
 
 " ===================== plugins after load =================
+
+" rmagatti/auto-session
 if has("nvim")
     lua require("auto-session").setup()
 endif
+
+" gelguy/wilder.nvim
+source ~/.vim/scripts/wilder.vim
 
 " ===================== colors =============================
 " Customize colors

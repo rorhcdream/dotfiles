@@ -12,6 +12,7 @@ files=(
     ".vim/scripts/coc_nvim.vim"
     ".vim/scripts/toggle_terminal.vim"
     ".vim/scripts/clipboard_yank.vim"
+    ".vim/scripts/wilder.vim"
     ".config/nvim/init.vim"
     ".config/nvim/coc-settings.json"
     ".config/gh/config.yml"
