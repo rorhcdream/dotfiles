@@ -180,6 +180,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tmhedberg/SimpylFold'
 
 " gelguy/wilder.nvim
 if has('nvim')
