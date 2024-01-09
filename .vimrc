@@ -181,6 +181,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tmhedberg/SimpylFold'
+Plug 'pedrohdz/vim-yaml-folds'
 
 " gelguy/wilder.nvim
 if has('nvim')
