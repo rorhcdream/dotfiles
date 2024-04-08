@@ -1,5 +1,9 @@
 {
-    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic": {
+        "refreshOnInsertMode": true,
+        "virtualText": true,
+        "virtualTextCurrentLineOnly": false
+    },
     "languageserver": {
         "csharp-ls": {
             "command": "csharp-ls",
