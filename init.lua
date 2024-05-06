@@ -15,7 +15,6 @@ vim.opt.foldlevel = 99
 vim.opt.updatetime = 100
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.undodir = "~/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.scrolloff = 5
 
