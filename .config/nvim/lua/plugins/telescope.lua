@@ -21,6 +21,15 @@ return {
                             ['<ESC>'] = actions.close,
                         },
                     },
+                    file_ignore_patterns = {
+                        ".git/", ".cache", "%.o", "%.a", "%.out", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip",
+                        "node_modules/",
+                    },
+                },
+                pickers = {
+                    find_files = {
+                        hidden = true,
+                    },
                 },
             })
 
