@@ -6,7 +6,7 @@ sudo=${SUDO:+sudo}
 
 # install packages
 export DEBIAN_FRONTEND=noninteractive
-packages=("git" "zsh" "curl" "tmux" "vim" "ripgrep" "wget" "make" "openssh" "gcc" "g++")
+packages=("git" "zsh" "curl" "tmux" "vim" "ripgrep" "wget" "make" "openssh" "gcc" "g++" "unzip" "gzip" "tar")
 if [ -x "$(command -v apk)" ];       then $sudo apk add --no-cache ${packages[@]} zsh-vcs grep
 elif [ -x "$(command -v apt-get)" ]; then $sudo apt update && apt install -y ${packages[@]} language-pack-en
 elif [ -x "$(command -v brew)" ];     then $sudo brew install ${packages[@]}
