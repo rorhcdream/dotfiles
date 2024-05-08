@@ -54,4 +54,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
-require("lazy").setup('plugins')
+require("lazy").setup({
+    { import = 'plugins' },
+    { import = 'plugins.lsp' },
+})
