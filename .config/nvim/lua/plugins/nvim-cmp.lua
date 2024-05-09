@@ -40,14 +40,22 @@ return {
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
-          mapping = cmp.mapping.preset.cmdline(),
+          mapping = cmp.mapping.preset.cmdline({
+                ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+                ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+                ['<Tab>'] = cmp.mapping.confirm({ select = false }),
+          }),
           sources = {
             { name = 'buffer' }
           }
         })
 
         cmp.setup.cmdline(':', {
-          mapping = cmp.mapping.preset.cmdline(),
+          mapping = cmp.mapping.preset.cmdline({
+                ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+                ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+                ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+          }),
           sources = cmp.config.sources({
             { name = 'path' }
           }, {
