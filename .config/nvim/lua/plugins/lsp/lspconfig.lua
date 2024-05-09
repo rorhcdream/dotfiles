@@ -16,8 +16,8 @@ return {
             opts.desc = 'Show LSP references'
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
 
-            opts.desc = 'Go to declaration'
-            vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
+            opts.desc = 'Go to definition'
+            vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
 
             opts.desc = 'See available code actions'
             vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
