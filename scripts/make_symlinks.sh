@@ -7,7 +7,8 @@ files=(
     ".tmux.conf"
     ".zshrc"
     ".gitconfig"
-    ".config"
+    ".config/gh/config.yaml"
+    ".config/nvim"
 )
 
 for filename in "${files[@]}"; do
