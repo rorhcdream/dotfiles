@@ -1,12 +1,12 @@
 return {
-      "nvim-tree/nvim-tree.lua",
-      version = "*",
-      lazy = false,
-      dependencies = {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
         "nvim-tree/nvim-web-devicons",
         "antosha417/nvim-lsp-file-operations",
-      },
-      config = function()
+    },
+    config = function()
         require("nvim-tree").setup {
             renderer = {
                 icons = {
@@ -30,13 +30,13 @@ return {
 
         -- Auto close
         vim.api.nvim_create_autocmd("BufEnter", {
-          nested = true,
-          callback = function()
-            if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
-              vim.cmd "b #"
-              vim.cmd "quit"
+            nested = true,
+            callback = function()
+                if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+                    vim.cmd "b #"
+                    vim.cmd "quit"
+                end
             end
-          end
         })
 
         -- Toggle config
@@ -54,15 +54,15 @@ return {
 
         -- To avoid conflict with auto-session
         vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-          pattern = 'NvimTree*',
-          callback = function()
-            local api = require('nvim-tree.api')
-            local view = require('nvim-tree.view')
+            pattern = 'NvimTree*',
+            callback = function()
+                local api = require('nvim-tree.api')
+                local view = require('nvim-tree.view')
 
-            if not view.is_visible() then
-              api.tree.open()
-            end
-          end,
+                if not view.is_visible() then
+                    api.tree.open()
+                end
+            end,
         })
-      end,
-    }
+    end,
+}
