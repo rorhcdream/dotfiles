@@ -82,5 +82,7 @@ SUDO=$sudo $basedir/make_symlinks.sh
 echo "Installing nvim plugins"
 nvim -e -s -u ~/.vimrc +PlugInstall || true
 
+# install efm language server
+# go install github.com/mattn/efm-langserver@latest
 
 

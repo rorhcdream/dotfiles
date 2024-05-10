@@ -134,3 +134,5 @@ eval "$(pyenv init -)"
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+export PATH="$(go env GOPATH)/bin:$PATH"
