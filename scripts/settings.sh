@@ -82,6 +82,13 @@ SUDO=$sudo $basedir/make_symlinks.sh
 echo "Installing nvim plugins"
 nvim -e -s -u ~/.vimrc +PlugInstall || true
 
+# install gvm
+# sudo apt-get install bison 
+# bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+# install go
+# gvm install go1.22.3 -B
+
 # install efm language server
 # go install github.com/mattn/efm-langserver@latest
 
