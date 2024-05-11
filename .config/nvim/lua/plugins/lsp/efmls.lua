@@ -41,11 +41,11 @@ return {
 			callback = function(ev)
 				local efm = vim.lsp.get_active_clients({ name = "efm", bufnr = ev.buf })
 
-				if vim.tbl_isempty(efm) then
-					return
+				if not vim.tbl_isempty(efm) then
+					vim.lsp.buf.format({ name = "efm" })
+				else
+					vim.lsp.buf.format()
 				end
-
-				vim.lsp.buf.format({ name = "efm" })
 			end,
 		})
 	end,
