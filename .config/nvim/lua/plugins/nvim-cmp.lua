@@ -48,6 +48,11 @@ return {
 			sources = {
 				{ name = "buffer" },
 			},
+			view = {
+				entries = {
+					name = 'wildmenu',
+				},
+			},
 		})
 
 		cmp.setup.cmdline(":", {
