@@ -46,5 +46,7 @@ return {
 
 		vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Fuzzy find files in CWD" })
 		vim.keymap.set("n", "<leader>f", builtin.live_grep, { desc = "Find string in CWD" })
+
+		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "Green" })
 	end,
 }
