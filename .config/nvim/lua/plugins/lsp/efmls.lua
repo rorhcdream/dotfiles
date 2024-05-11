@@ -14,6 +14,9 @@ return {
             lua = {
                 require('efmls-configs.formatters.stylua'),
             },
+            cpp = {
+                require('efmls-configs.formatters.clang_format'),
+            },
         }
 
         local efmls_config = {
