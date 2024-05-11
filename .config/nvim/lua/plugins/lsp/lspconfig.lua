@@ -30,6 +30,7 @@ return {
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
+		capabilities.offsetEncoding = { "utf-16" }
 
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
