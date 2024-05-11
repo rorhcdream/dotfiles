@@ -38,7 +38,11 @@ vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
 -- Customize color for the color scheme
 vim.api.nvim_create_autocmd("ColorScheme", {
-	command = "hi PmenuSel guibg=#282a36 guisp=#282a36",
+	callback = function()
+		vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282a36", sp = "#282a36" })
+		vim.api.nvim_set_hl(0, "Identifier", { fg = "white" })
+		vim.api.nvim_set_hl(0, "Boolean", { fg = "#9aedfe" })
+	end,
 })
 
 -- Set autoformat
