@@ -88,8 +88,3 @@ nvim -e -s -u ~/.vimrc +PlugInstall || true
 
 # install go
 # gvm install go1.22.3 -B
-
-# install efm language server
-# go install github.com/mattn/efm-langserver@latest
-
-

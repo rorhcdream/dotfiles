@@ -20,6 +20,7 @@ return {
             ensure_installed = {
                 'gopls',
                 'lua_ls',
+                'efm',
             },
             automatic_installation = false,
         })
