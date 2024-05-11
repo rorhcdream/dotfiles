@@ -1,5 +1,6 @@
 return {
 	"creativenull/efmls-configs-nvim",
+	enabled = false, -- language servers already have built-in formatters
 	version = "v1.x.x", -- version is optional, but recommended
 	dependencies = {
 		"neovim/nvim-lspconfig",
@@ -8,15 +9,10 @@ return {
 	-- https://github.com/creativenull/efmls-configs-nvim?tab=readme-ov-file#setup
 	config = function()
 		local languages = {
-			lua = {
-				require("efmls-configs.formatters.stylua"),
-			},
-			go = {
-				require("efmls-configs.formatters.gofmt"),
-			},
-			cpp = {
-				require("efmls-configs.formatters.clang_format"),
-			},
+			---- lua-ls already has a built-in formatter
+			-- lua = {
+			-- 	require("efmls-configs.formatters.stylua"),
+			-- },
 		}
 
 		local efmls_config = {
@@ -32,21 +28,5 @@ return {
 		}
 
 		require("lspconfig").efm.setup(efmls_config)
-
-		-- set autoformat
-		-- https://github.com/creativenull/efmls-configs-nvim?tab=readme-ov-file#format-on-save
-		local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-		vim.api.nvim_create_autocmd("BufWritePost", {
-			group = lsp_fmt_group,
-			callback = function(ev)
-				local efm = vim.lsp.get_active_clients({ name = "efm", bufnr = ev.buf })
-
-				if not vim.tbl_isempty(efm) then
-					vim.lsp.buf.format({ name = "efm" })
-				else
-					vim.lsp.buf.format()
-				end
-			end,
-		})
 	end,
 }
