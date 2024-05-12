@@ -27,9 +27,49 @@ return {
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
+				-- -- Snippet jump with <Tab> and <S-Tab>
 				["<C-k>"] = cmp.mapping.select_prev_item(),
 				["<C-j>"] = cmp.mapping.select_next_item(),
-				["<Tab>"] = cmp.mapping.confirm({ select = false }),
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						print('a')
+						cmp.confirm({ select = false })
+					elseif luasnip.expand_or_locally_jumpable() then
+						print('b')
+						luasnip.expand_or_jump()
+					else
+						print('c')
+						fallback()
+					end
+				end, { "i", "s" }),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if luasnip.locally_jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, { "i", "s" })
+
+				-- -- Snippet jump with <C-j> and <C-k>
+				-- ["<C-k>"] = cmp.mapping(function(fallback)
+				-- 	if cmp.visible() then
+				-- 		cmp.select_prev_item()
+				-- 	elseif luasnip.locally_jumpable(-1) then
+				-- 		luasnip.jump(-1)
+				-- 	else
+				-- 		fallback()
+				-- 	end
+				-- end, { "i", "s" }),
+				-- ["<C-j>"] = cmp.mapping(function(fallback)
+				-- 	if cmp.visible() then
+				-- 		cmp.select_next_item()
+				-- 	elseif luasnip.expand_or_locally_jumpable() then
+				-- 		luasnip.expand_or_jump()
+				-- 	else
+				-- 		fallback()
+				-- 	end
+				-- end, { "i", "s" }),
+				-- ["<Tab>"] = cmp.mapping.confirm({ select = false }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
