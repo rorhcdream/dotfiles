@@ -63,6 +63,7 @@ return {
 		lspconfig["clangd"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "c", "cpp" },
 		})
 
 		lspconfig["rust_analyzer"].setup({
@@ -71,6 +72,11 @@ return {
 		})
 
 		lspconfig["pylsp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["bufls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

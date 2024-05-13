@@ -24,6 +24,7 @@ return {
 				"go",
 				"python",
 				"rust",
+				"proto",
 			},
 			sync_install = false,
 			highlight = {
