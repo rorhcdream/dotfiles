@@ -80,5 +80,11 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+		vim.api.nvim_create_autocmd("CursorHold", {
+			callback = function()
+				vim.diagnostic.open_float({ scope = "cursor" })
+			end,
+		})
 	end,
 }
