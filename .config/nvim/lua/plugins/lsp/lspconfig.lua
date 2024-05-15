@@ -26,7 +26,17 @@ return {
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
 
 			opts.desc = "Show documents"
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "K", function()
+				vim.opt.eventignore = "CursorHold"
+				vim.lsp.buf.hover()
+				vim.api.nvim_create_autocmd("CursorMoved", {
+					callback = function()
+						vim.opt.eventignore = ""
+					end,
+					buffer = 0,
+					once = true,
+				})
+			end, opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
