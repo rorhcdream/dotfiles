@@ -9,6 +9,7 @@ files=(
     ".gitconfig"
     ".config/gh/config.yaml"
     ".config/nvim"
+    ".golangci.yml"
 )
 
 for filename in "${files[@]}"; do

@@ -1,0 +1,5 @@
+linters-settings:
+  staticcheck:
+    checks:
+      - all
+      - '-SA1019' # disable the deprecation check - it is already covered by gopls
