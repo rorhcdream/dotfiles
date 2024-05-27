@@ -25,6 +25,8 @@ return {
 				"python",
 				"rust",
 				"proto",
+				"markdown",
+				"markdown_inline",
 			},
 			sync_install = false,
 			highlight = {
