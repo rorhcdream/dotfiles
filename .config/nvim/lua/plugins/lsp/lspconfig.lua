@@ -81,7 +81,7 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["pylsp"].setup({
+		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -96,5 +96,8 @@ return {
 				vim.diagnostic.open_float({ scope = "cursor" })
 			end,
 		})
+
+		-- For debugging
+		-- vim.lsp.set_log_level("trace")
 	end,
 }
