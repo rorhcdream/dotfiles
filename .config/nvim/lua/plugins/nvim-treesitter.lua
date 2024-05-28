@@ -25,6 +25,9 @@ return {
 				"python",
 				"rust",
 				"proto",
+				"json",
+				"toml",
+				"yaml",
 			},
 			sync_install = false,
 			highlight = {
