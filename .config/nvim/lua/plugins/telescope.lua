@@ -34,6 +34,16 @@ return {
 					"%.zip$",
 					"^node_modules/",
 				},
+				vimgrep_arguments = {
+					'rg',
+					'--follow',
+					'--hidden',
+					'--no-heading',
+					'--with-filename',
+					'--line-number',
+					'--column',
+					'--smart-case',
+				},
 			},
 			pickers = {
 				find_files = {
