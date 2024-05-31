@@ -7,6 +7,7 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
+		local lspconfig_util = require("lspconfig.util")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local opts = { silent = true }
@@ -76,9 +77,32 @@ return {
 			filetypes = { "c", "cpp" },
 		})
 
+
+		local function get_rust_analyzer_init_options()
+			local get_root = lspconfig_util.root_pattern('.git', 'Cargo.toml', 'rust-project.json')
+			local root = get_root(vim.loop.cwd())
+			local function exists(path)
+				return lspconfig_util.path.exists(
+					lspconfig_util.path.join(root, path)
+				)
+			end
+			if exists('Cargo.toml') or exists('rust-project.json') then
+				return {}
+			end
+
+			-- Run rust-analyzer in detached mode
+			local detachedFiles = {}
+			for file in string.gmatch(vim.fn.globpath(root, '**/*.rs'), '[%S]+') do
+				table.insert(detachedFiles, file)
+			end
+			return {
+				detachedFiles = detachedFiles,
+			}
+		end
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			init_options = get_rust_analyzer_init_options(),
 		})
 
 		lspconfig["pyright"].setup({
