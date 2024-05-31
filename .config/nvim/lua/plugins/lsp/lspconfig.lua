@@ -77,32 +77,39 @@ return {
 			filetypes = { "c", "cpp" },
 		})
 
-
-		local function get_rust_analyzer_init_options()
-			local get_root = lspconfig_util.root_pattern('.git', 'Cargo.toml', 'rust-project.json')
-			local root = get_root(vim.loop.cwd())
-			local function exists(path)
-				return lspconfig_util.path.exists(
-					lspconfig_util.path.join(root, path)
-				)
-			end
-			if exists('Cargo.toml') or exists('rust-project.json') then
-				return {}
-			end
-
-			-- Run rust-analyzer in detached mode
-			local detachedFiles = {}
-			for file in string.gmatch(vim.fn.globpath(root, '**/*.rs'), '[%S]+') do
-				table.insert(detachedFiles, file)
-			end
-			return {
-				detachedFiles = detachedFiles,
-			}
-		end
+		local rust_initialized = false
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			init_options = get_rust_analyzer_init_options(),
+			on_new_config = function(new_config, new_root_dir)
+				if rust_initialized then
+					return
+				end
+				rust_initialized = true
+
+				print("Initialize rust-analyer: Register detached files if CWD not in a Cargo project")
+				local function get_init_options()
+					local get_root = lspconfig_util.root_pattern('.git', 'Cargo.toml', 'rust-project.json')
+					local root = get_root(vim.loop.cwd())
+					local function exists(path)
+						return lspconfig_util.path.exists(
+							lspconfig_util.path.join(root, path)
+						)
+					end
+					if exists('Cargo.toml') or exists('rust-project.json') then
+						return {}
+					end
+
+					local detachedFiles = {}
+					for file in string.gmatch(vim.fn.globpath(root, '**/*.rs'), '[%S]+') do
+						table.insert(detachedFiles, file)
+					end
+					return {
+						detachedFiles = detachedFiles,
+					}
+				end
+				new_config.init_options = get_init_options()
+			end,
 		})
 
 		lspconfig["pyright"].setup({
