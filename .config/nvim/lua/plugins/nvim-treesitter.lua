@@ -28,6 +28,8 @@ return {
 				"json",
 				"toml",
 				"yaml",
+				"markdown",
+				"markdown_inline",
 			},
 			sync_install = false,
 			highlight = {

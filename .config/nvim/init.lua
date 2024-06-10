@@ -19,6 +19,7 @@ vim.opt.smartcase = true
 vim.opt.undofile = true
 vim.opt.scrolloff = 5
 vim.opt.signcolumn = "yes"
+vim.opt.conceallevel = 1
 
 vim.keymap.set({ "i", "t" }, "hh", "<Plug>esc")
 vim.keymap.set("i", "jk", "<Plug>esc")
