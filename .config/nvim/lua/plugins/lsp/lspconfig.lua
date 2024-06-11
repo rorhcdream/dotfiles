@@ -122,6 +122,16 @@ return {
 			on_attach = on_attach,
 		})
 
+		lspconfig["eslint"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["tsserver"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		vim.api.nvim_create_autocmd("CursorHold", {
 			callback = function()
 				vim.diagnostic.open_float({ scope = "cursor", focus = false })
