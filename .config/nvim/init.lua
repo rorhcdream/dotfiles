@@ -32,8 +32,6 @@ vim.keymap.set({ "i", "n" }, "<leader>`", "<Plug>TermToggle")
 vim.keymap.set("t", "<leader>`", "<Plug>esc<Plug>TermToggle")
 vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>")
 vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
