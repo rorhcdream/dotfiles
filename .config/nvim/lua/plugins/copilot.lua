@@ -3,7 +3,8 @@ return {
 	enabled = function()
 		local current_dir = vim.fn.expand('%:p:h') -- Get the full path of the current buffer's directory
 		local ps_dir = vim.fn.expand('~/PS') -- Get the full path of ~/PS directory
-		return not string.find(current_dir, ps_dir, 1, true)
+		local obsidian_vaults = 'obsidian-vaults'
+		return not (string.find(current_dir, ps_dir, 1, true) or string.find(current_dir, obsidian_vaults, 1, true))
 	end,
 	event = "InsertEnter",
 	config = function()
