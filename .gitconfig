@@ -4,9 +4,12 @@
 [core]
         editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
         autocrlf = input
+	quotepath = false
 [push]
 	autoSetupRemote = true
 [alias]
         push-force = push --force-with-lease --force-if-includes
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[init]
+	defaultBranch = main
