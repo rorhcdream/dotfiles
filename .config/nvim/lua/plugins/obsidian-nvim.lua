@@ -25,6 +25,7 @@ return {
 		},
 		daily_notes = {
 			folder = "Daily notes",
+			alias_format = "%Y-%m-%d %a",
 		},
 		---@param spec { id: string, dir: obsidian.Path, title: string|? }
 		---@return string|obsidian.Path The full path to the new note.
