@@ -115,6 +115,10 @@ return {
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			on_new_config = function(new_config, new_root_dir)
+				-- Pyright is launched in a separate shell, so we set the pyenv version here to use the current virtual env
+				vim.env.PYENV_VERSION = vim.fn.system('pyenv version'):match('(%S+)%s+%(.-%)')
+			end,
 		})
 
 		lspconfig["bufls"].setup({
