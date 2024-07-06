@@ -13,7 +13,6 @@ vim.opt.expandtab = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
-vim.opt.updatetime = 100
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.undofile = true
