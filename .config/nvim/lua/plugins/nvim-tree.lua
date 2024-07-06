@@ -1,7 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = "*",
-	lazy = false,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"antosha417/nvim-lsp-file-operations",
@@ -39,19 +38,6 @@ return {
 			end,
 		})
 
-		-- Toggle config
-		local nvimTreeFocusOrToggle = function()
-			local nvimTree = require("nvim-tree.api")
-			local currentBuf = vim.api.nvim_get_current_buf()
-			local currentBufFt = vim.api.nvim_get_option_value("filetype", { buf = currentBuf })
-			if currentBufFt == "NvimTree" then
-				nvimTree.tree.toggle()
-			else
-				nvimTree.tree.find_file({ open = true, focus = true })
-			end
-		end
-		vim.keymap.set("n", "<leader>t", nvimTreeFocusOrToggle)
-
 		-- To avoid conflict with auto-session
 		vim.api.nvim_create_autocmd({ "BufEnter" }, {
 			pattern = "NvimTree*",
@@ -65,4 +51,20 @@ return {
 			end,
 		})
 	end,
+	keys = {
+		{
+			"<leader>e",
+			function()
+				local nvimTree = require("nvim-tree.api")
+				local currentBuf = vim.api.nvim_get_current_buf()
+				local currentBufFt = vim.api.nvim_get_option_value("filetype", { buf = currentBuf })
+				if currentBufFt == "NvimTree" then
+					nvimTree.tree.toggle()
+				else
+					nvimTree.tree.find_file({ open = true, focus = true })
+				end
+			end,
+			desc = "focus or toggle file tree",
+		},
+	},
 }
