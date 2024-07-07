@@ -6,7 +6,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 
 		-- adaptors
-		"neotest-go",
+		"nvim-neotest/neotest-go",
 	},
 	config = function()
 		-- get neotest namespace (api call creates or returns namespace)
