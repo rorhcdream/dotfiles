@@ -38,5 +38,11 @@ return {
 			local path = spec.dir / spec.title
 			return path:with_suffix(".md")
 		end,
+		---@param url string
+		follow_url_func = function(url)
+			-- Open the URL in the default web browser.
+			-- vim.fn.jobstart({ "open", url }) -- Mac OS
+			vim.fn.jobstart({ "xdg-open", url }) -- linux
+		end,
 	},
 }
