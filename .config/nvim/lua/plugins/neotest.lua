@@ -6,7 +6,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 
 		-- adaptors
-		"nvim-neotest/neotest-go",
+		"fredrikaverpil/neotest-golang",
 	},
 	config = function()
 		-- get neotest namespace (api call creates or returns namespace)
@@ -24,7 +24,7 @@ return {
 		local neotest = require("neotest")
 		neotest.setup({
 			adapters = {
-				require("neotest-go"),
+				require("neotest-golang"),
 			},
 			discovery = {
 				enabled = false,
