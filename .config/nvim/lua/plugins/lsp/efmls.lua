@@ -11,6 +11,10 @@ return {
 				require('efmls-configs.formatters.black'),
 				require('efmls-configs.formatters.isort'),
 			},
+			yaml = {
+				require('efmls-configs.linters.yamllint'),
+				require('efmls-configs.formatters.prettier'),
+			},
 		}
 
 		local efmls_config = {
