@@ -4,11 +4,17 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"lukas-reineke/lsp-format.nvim",
+		{ "creativenull/efmls-configs-nvim",     vrsion = "v1.x.x" },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
 		local lspconfig_util = require("lspconfig.util")
+		local lspformat = require("lsp-format")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+		lspformat.setup()
+		vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
 
 		local opts = { silent = true }
 		local on_attach = function(client, bufnr)
@@ -38,6 +44,8 @@ return {
 					once = true,
 				})
 			end, opts)
+
+			lspformat.on_attach(client, bufnr)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -136,11 +144,37 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- https://github.com/creativenull/efmls-configs-nvim?tab=readme-ov-file#setup
+		local efmls_languages = {
+			python = {
+				require('efmls-configs.formatters.black'),
+				require('efmls-configs.formatters.isort'),
+			},
+			yaml = {
+				require('efmls-configs.linters.yamllint'),
+				require('efmls-configs.formatters.prettier'),
+			},
+		}
+
+		lspconfig["efm"].setup({
+			filetypes = vim.tbl_keys(efmls_languages),
+			settings = {
+				rootMarkers = { ".git/" },
+				languages = efmls_languages,
+			},
+			init_options = {
+				documentFormatting = true,
+				documentRangeFormatting = true,
+			},
+			on_attach = on_attach,
+		})
+
 		vim.api.nvim_create_autocmd("CursorHold", {
 			callback = function()
 				vim.diagnostic.open_float({ scope = "cursor", focus = false })
 			end,
 		})
+
 
 		-- For debugging
 		-- vim.lsp.set_log_level("trace")
