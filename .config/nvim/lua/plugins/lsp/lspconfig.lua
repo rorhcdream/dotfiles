@@ -16,6 +16,28 @@ return {
 		lspformat.setup()
 		vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
 
+		local function setup_border()
+			local border = {
+				{ '┌', 'FloatBorder' },
+				{ '─', 'FloatBorder' },
+				{ '┐', 'FloatBorder' },
+				{ '│', 'FloatBorder' },
+				{ '┘', 'FloatBorder' },
+				{ '─', 'FloatBorder' },
+				{ '└', 'FloatBorder' },
+				{ '│', 'FloatBorder' },
+			}
+
+			-- To instead override globally
+			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+				opts = opts or {}
+				opts.border = opts.border or border
+				return orig_util_open_floating_preview(contents, syntax, opts, ...)
+			end
+		end
+		setup_border()
+
 		local opts = { silent = true }
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
