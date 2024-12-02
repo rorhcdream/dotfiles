@@ -5,6 +5,9 @@ return {
 	config = function()
 		vim.keymap.set('n', '<leader>b', '<cmd>BufferLinePick<CR>', { noremap = true, silent = true })
 		vim.keymap.set('n', '<leader>d', '<cmd>BufferLinePickClose<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>ldd', '<cmd>BufferLineCloseOthers<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>ldl', '<cmd>BufferLineCloseLeft<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>ldr', '<cmd>BufferLineCloseRight<CR>', { noremap = true, silent = true })
 		require("bufferline").setup(
 			{
 				options = {
