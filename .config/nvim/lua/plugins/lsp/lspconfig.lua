@@ -173,7 +173,7 @@ return {
 				require('efmls-configs.formatters.isort'),
 			},
 			yaml = {
-				require('efmls-configs.linters.yamllint'),
+				-- require('efmls-configs.linters.yamllint'),
 				require('efmls-configs.formatters.prettier'),
 			},
 		}
