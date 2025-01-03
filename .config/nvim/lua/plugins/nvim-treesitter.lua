@@ -31,6 +31,7 @@ return {
 				"yaml",
 				"markdown",
 				"markdown_inline",
+				"solidity",
 			},
 			sync_install = false,
 			highlight = {
