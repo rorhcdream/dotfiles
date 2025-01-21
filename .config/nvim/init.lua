@@ -3,6 +3,7 @@ vim.g.mapleader = ","
 
 vim.opt.mouse = "a"
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.ruler = true
 vim.opt.showcmd = true
 vim.opt.incsearch = true
