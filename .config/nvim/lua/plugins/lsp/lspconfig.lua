@@ -176,6 +176,9 @@ return {
 				-- require('efmls-configs.linters.yamllint'),
 				require('efmls-configs.formatters.prettier'),
 			},
+			json = {
+				require('efmls-configs.formatters.prettier'),
+			},
 		}
 
 		lspconfig["efm"].setup({
