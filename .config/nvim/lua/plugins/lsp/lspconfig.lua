@@ -151,7 +151,7 @@ return {
 			end,
 		})
 
-		lspconfig["bufls"].setup({
+		lspconfig["buf_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -161,7 +161,7 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
