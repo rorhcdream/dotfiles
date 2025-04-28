@@ -42,30 +42,52 @@ return {
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
-			opts.desc = "Show LSP references"
-			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-
-			opts.desc = "Go to definition"
-			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-
-			opts.desc = "See available code actions"
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-
-			opts.desc = "Rename"
-			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
-
-			opts.desc = "Show documents"
-			vim.keymap.set("n", "K", function()
-				vim.opt.eventignore = "CursorHold"
-				vim.lsp.buf.hover()
-				vim.api.nvim_create_autocmd("CursorMoved", {
-					callback = function()
-						vim.opt.eventignore = ""
-					end,
-					buffer = 0,
-					once = true,
+			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>",
+				vim.tbl_extend('force', opts, {
+					desc = "Show LSP references",
+					nowait = true,
 				})
-			end, opts)
+			)
+
+			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>",
+				vim.tbl_extend('force', opts, {
+					desc = "Go to definition",
+				})
+			)
+
+			vim.keymap.set("n", "gO", "<cmd>Telescope lsp_document_symbols<CR>",
+				vim.tbl_extend('force', opts, {
+					desc = "Show document symbols",
+				})
+			)
+
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action,
+				vim.tbl_extend('force', opts, {
+					desc = "See available code actions",
+				})
+			)
+
+			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename,
+				vim.tbl_extend('force', opts, {
+					desc = "Rename symbol",
+				})
+			)
+
+			vim.keymap.set("n", "K", function()
+					vim.opt.eventignore = "CursorHold"
+					vim.lsp.buf.hover()
+					vim.api.nvim_create_autocmd("CursorMoved", {
+						callback = function()
+							vim.opt.eventignore = ""
+						end,
+						buffer = 0,
+						once = true,
+					})
+				end,
+				vim.tbl_extend('force', opts, {
+					desc = "Show documents",
+				})
+			)
 
 			lspformat.on_attach(client, bufnr)
 		end
