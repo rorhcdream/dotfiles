@@ -55,6 +55,12 @@ return {
 				})
 			)
 
+			vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>",
+				vim.tbl_extend('force', opts, {
+					desc = "Show implementations",
+				})
+			)
+
 			vim.keymap.set("n", "gO", "<cmd>Telescope lsp_document_symbols<CR>",
 				vim.tbl_extend('force', opts, {
 					desc = "Show document symbols",
