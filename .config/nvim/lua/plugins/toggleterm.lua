@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("toggleterm").setup({
 			size = 25,
-			open_mapping = "<leader>a",
+			open_mapping = "<leader><Tab>",
 			terminal_mappings = true,
 		})
 	end,
