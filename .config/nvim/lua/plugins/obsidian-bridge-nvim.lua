@@ -14,5 +14,5 @@ return {
 		"BufNewFile *.md",
 	},
 	lazy = true,
-	enable = false,
+	enabled = false,
 }
