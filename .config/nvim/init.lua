@@ -35,6 +35,17 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
+-- Set up shell for Windows
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+	vim.o.shell = "powershell"
+	vim.o.shellcmdflag =
+	"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+	vim.o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.o.shellquote = ""
+	vim.o.shellxquote = ""
+end
+
 -- Customize color for the color scheme
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
