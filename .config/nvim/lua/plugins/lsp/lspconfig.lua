@@ -179,7 +179,7 @@ return {
 			end,
 		})
 
-		lspconfig["buf_ls"].setup({
+		lspconfig["protols"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
