@@ -95,6 +95,16 @@ return {
 				})
 			)
 
+			vim.keymap.set('v', '<Leader>F', function()
+				vim.lsp.buf.format({
+					async = true,
+					range = {
+						["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+						["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+					}
+				})
+			end)
+
 			lspformat.on_attach(client, bufnr)
 		end
 
@@ -194,6 +204,11 @@ return {
 			on_attach = on_attach,
 		})
 
+		lspconfig["jsonls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- https://github.com/creativenull/efmls-configs-nvim?tab=readme-ov-file#setup
 		local efmls_languages = {
 			python = {
@@ -204,9 +219,9 @@ return {
 				-- require('efmls-configs.linters.yamllint'),
 				require('efmls-configs.formatters.prettier'),
 			},
-			json = {
-				require('efmls-configs.formatters.prettier'),
-			},
+			-- json = {
+			-- 	require('efmls-configs.formatters.prettier'),
+			-- },
 		}
 
 		lspconfig["efm"].setup({
