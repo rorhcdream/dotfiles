@@ -23,7 +23,7 @@ return {
 					},
 				},
 				file_ignore_patterns = {
-					"^%.git/",
+					"^%.git/objects",
 					"%.cache$",
 					"%.o$",
 					"%.a$",
