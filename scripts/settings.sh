@@ -64,7 +64,7 @@ if [ $machine = "Mac" ]; then
 elif [ $os_id = "alpine" ]; then
     $sudo apk add --no-cache neovim
 else
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+    wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
     tar -xzvf nvim-linux64.tar.gz
     (test -e /nvim-linux64 || $sudo mv nvim-linux64 /; true)
     $sudo ln -s /nvim-linux64/bin/nvim /usr/local/bin/nvim
