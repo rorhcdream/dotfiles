@@ -65,22 +65,13 @@ elif [ $os_id = "alpine" ]; then
     $sudo apk add --no-cache neovim
 else
     wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-    tar -xzvf nvim-linux64.tar.gz
-    (test -e /nvim-linux64 || $sudo mv nvim-linux64 /; true)
-    $sudo ln -s /nvim-linux64/bin/nvim /usr/local/bin/nvim
+    tar -xzvf nvim-linux-x86_64.tar.gz
+    (test -e /nvim-linux-x86_64 || $sudo mv nvim-linux-x86_64 /; true)
+    $sudo ln -s /nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
 fi
-
-# install nvim plugin manager
-echo "Installing nvim plugin manager"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # make symbolic links of dotfiles
 SUDO=$sudo $basedir/make_symlinks.sh
-
-# install nvim plugins
-echo "Installing nvim plugins"
-nvim -e -s -u ~/.vimrc +PlugInstall || true
 
 # install gvm
 # sudo apt-get install bison 
