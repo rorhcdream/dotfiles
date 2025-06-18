@@ -132,11 +132,7 @@ return {
 			clangd = {
 				filetypes = { "c", "cpp" },
 			},
-			rust_analyzer = {
-				on_new_config = function(new_config, new_root_dir)
-					-- This is handled in the on_new_config below
-				end,
-			},
+			rust_analyzer = {},
 			pyright = {
 				on_new_config = function(new_config, new_root_dir)
 					-- Pyright is launched in a separate shell, so we set the pyenv version here to use the current virtual env
