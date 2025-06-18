@@ -209,6 +209,13 @@ return {
 			on_attach = on_attach,
 		})
 
+		vim.lsp.config("roslyn_ls", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = { "roslyn.cmd", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" }
+		})
+		vim.lsp.enable("roslyn_ls")
+
 		-- https://github.com/creativenull/efmls-configs-nvim?tab=readme-ov-file#setup
 		local efmls_languages = {
 			python = {
