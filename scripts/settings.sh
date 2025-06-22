@@ -67,6 +67,9 @@ else
     $sudo ln -s /nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
 fi
 
+# install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # make symbolic links of dotfiles
 SUDO=$sudo $basedir/make_symlinks.sh
 

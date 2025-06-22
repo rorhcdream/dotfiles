@@ -148,4 +148,9 @@ alias vim='nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
+# Go path
 export PATH="$(go env GOPATH)/bin:$PATH"
+
+# uv path
+. "$HOME/.local/bin/env"
+
