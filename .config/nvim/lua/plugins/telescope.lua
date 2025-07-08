@@ -26,6 +26,7 @@ return {
 				},
 				file_ignore_patterns = {
 					"^%.git/objects",
+					"^%.git/logs",
 					"%.cache$",
 					"%.o$",
 					"%.a$",
