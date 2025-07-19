@@ -70,9 +70,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
-require("lazy").setup({
-	{ import = "plugins" },
-	{ import = "plugins.lsp" },
-}, {
-	change_detection = { notify = false },
-})
+if not vim.g.vscode then
+	require("lazy").setup(
+		{
+			{ import = "plugins" },
+			{ import = "plugins.lsp" },
+		},
+		{
+			change_detection = { notify = false },
+		},
+	)
+end
