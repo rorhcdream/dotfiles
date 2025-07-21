@@ -78,6 +78,6 @@ if not vim.g.vscode then
 		},
 		{
 			change_detection = { notify = false },
-		},
+		}
 	)
 end
