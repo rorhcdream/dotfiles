@@ -169,6 +169,7 @@ return {
 					documentRangeFormatting = true,
 				},
 			},
+			terraformls = {},
 		}
 
 		for server, config in pairs(ls_configs) do

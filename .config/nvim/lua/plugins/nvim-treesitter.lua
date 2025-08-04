@@ -33,6 +33,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"solidity",
+				"terraform",
 			},
 			sync_install = false,
 			highlight = {
