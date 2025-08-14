@@ -40,9 +40,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 #     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim ||
 # { echo "Failed"; exit 1; }
 
-# install pyenv
-curl https://pyenv.run | bash
-
 # install nvm and node
 if [ $os_id = "alpine" ]; then
     $sudo apk add nodejs
