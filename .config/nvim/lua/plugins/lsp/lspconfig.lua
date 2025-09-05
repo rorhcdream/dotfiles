@@ -142,14 +142,17 @@ return {
 				cmd = { "roslyn.cmd", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" },
 			},
 			efm = {
-				filetypes = { "python", "yaml" },
+				filetypes = {
+					-- "python",
+					"yaml",
+				},
 				settings = {
 					rootMarkers = { ".git/" },
 					languages = {
-						python = {
-							require('efmls-configs.formatters.black'),
-							require('efmls-configs.formatters.isort'),
-						},
+						-- python = {
+						-- 	require('efmls-configs.formatters.black'),
+						-- 	require('efmls-configs.formatters.isort'),
+						-- },
 						yaml = {
 							-- require('efmls-configs.linters.yamllint'),
 							require('efmls-configs.formatters.prettier'),
@@ -165,6 +168,7 @@ return {
 				},
 			},
 			terraformls = {},
+			ruff = {}
 		}
 
 		for server, config in pairs(ls_configs) do
