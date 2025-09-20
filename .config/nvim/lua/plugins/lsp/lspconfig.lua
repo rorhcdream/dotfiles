@@ -4,17 +4,12 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		"lukas-reineke/lsp-format.nvim",
 		{ "creativenull/efmls-configs-nvim",     vrsion = "v1.x.x" },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
 		local lspconfig_util = require("lspconfig.util")
-		local lspformat = require("lsp-format")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		lspformat.setup()
-		vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
 
 		local function setup_border()
 			local border = {
@@ -104,8 +99,6 @@ return {
 					}
 				})
 			end)
-
-			lspformat.on_attach(client, bufnr)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
