@@ -141,34 +141,7 @@ return {
 			roslyn_ls = {
 				cmd = { "roslyn.cmd", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" },
 			},
-			efm = {
-				filetypes = {
-					-- "python",
-					"yaml",
-				},
-				settings = {
-					rootMarkers = { ".git/" },
-					languages = {
-						-- python = {
-						-- 	require('efmls-configs.formatters.black'),
-						-- 	require('efmls-configs.formatters.isort'),
-						-- },
-						yaml = {
-							-- require('efmls-configs.linters.yamllint'),
-							require('efmls-configs.formatters.prettier'),
-						},
-						-- json = {
-						-- 	require('efmls-configs.formatters.prettier'),
-						-- },
-					},
-				},
-				init_options = {
-					documentFormatting = true,
-					documentRangeFormatting = true,
-				},
-			},
 			terraformls = {},
-			ruff = {}
 		}
 
 		for server, config in pairs(ls_configs) do
