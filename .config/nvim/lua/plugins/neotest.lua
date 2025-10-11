@@ -7,6 +7,7 @@ return {
 
 		-- adaptors
 		"fredrikaverpil/neotest-golang",
+		"nvim-neotest/neotest-python",
 	},
 	config = function()
 		-- get neotest namespace (api call creates or returns namespace)
@@ -25,6 +26,7 @@ return {
 		neotest.setup({
 			adapters = {
 				require("neotest-golang"),
+				require("neotest-python"),
 			},
 			discovery = {
 				enabled = false,
