@@ -1,5 +1,6 @@
 -- Mappings and options
 vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 vim.opt.mouse = "a"
 vim.opt.number = true
