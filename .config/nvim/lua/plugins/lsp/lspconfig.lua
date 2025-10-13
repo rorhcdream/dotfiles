@@ -62,11 +62,11 @@ return {
 				})
 			)
 
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action,
-				vim.tbl_extend('force', opts, {
-					desc = "See available code actions",
-				})
-			)
+			-- vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action,
+			-- 	vim.tbl_extend('force', opts, {
+			-- 		desc = "See available code actions",
+			-- 	})
+			-- )
 
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename,
 				vim.tbl_extend('force', opts, {
