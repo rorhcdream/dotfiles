@@ -9,6 +9,7 @@ files=(
     ".gitconfig"
     ".config/gh/config.yaml"
     ".config/nvim"
+    ".config/lazygit"
     ".golangci.yml"
 )
 
