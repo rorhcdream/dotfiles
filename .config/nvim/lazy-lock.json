@@ -44,7 +44,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "50b5b06bff13a9b4eab946de7c7033649a6618a1" },
   "obsidian-bridge.nvim": { "branch": "main", "commit": "079f788c7df99b3063935249ff9ff6ddadd2b85a" },
   "obsidian.nvim": { "branch": "main", "commit": "ae1f76a75c7ce36866e1d9342a8f6f5b9c2caf9b" },
-  "octo.nvim": { "branch": "master", "commit": "fded71669b61c6ccae9d8ade30f667c3c4962b48" },
+  "octo.nvim": { "branch": "master", "commit": "c17e5625df97d08940d6e66865d08b5945ad127d" },
   "oil.nvim": { "branch": "master", "commit": "685cdb4ffa74473d75a1b97451f8654ceeab0f4a" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "splitjoin.vim": { "branch": "main", "commit": "6af1cdcae4b46a90dbcd59ce0ca3543f34c7732c" },
