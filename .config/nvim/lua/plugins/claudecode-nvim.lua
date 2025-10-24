@@ -4,8 +4,8 @@ return {
 	config = true,
 	keys = {
 		{ "<leader>a",  nil,                              desc = "AI/Claude Code" },
-		{ "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
-		{ "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
+		{ "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude",      mode = "t" },
+		{ "<leader>ac", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude",       mode = "n" },
 		{ "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
 		{ "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
 		{ "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
