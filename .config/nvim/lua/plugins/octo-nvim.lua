@@ -7,6 +7,7 @@ return {
 	},
 	config = function()
 		require("octo").setup({
+			use_local_fs = true,
 			mappings = {
 				review_thread = {
 					select_next_entry = { lhs = "<Tab>", desc = "move to next changed file" },
