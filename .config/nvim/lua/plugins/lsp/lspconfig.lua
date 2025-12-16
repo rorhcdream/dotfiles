@@ -126,7 +126,13 @@ return {
 				filetypes = { "c", "cpp" },
 			},
 			rust_analyzer = {},
-			pyright = {},
+			basedpyright = {
+				settings = {
+					basedpyright = {
+						typeCheckingMode = "standard",
+					},
+				},
+			},
 			protols = {},
 			eslint = {},
 			ts_ls = {},
