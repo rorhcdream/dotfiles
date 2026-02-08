@@ -2,6 +2,16 @@ return {
 	"coder/claudecode.nvim",
 	dependencies = { "folke/snacks.nvim" },
 	lazy = vim.env.CLAUDECODE_TERMINAL_PROVIDER == nil,
+	cmd = {
+		"ClaudeCode",
+		"ClaudeCodeFocus",
+		"ClaudeCodeSend",
+		"ClaudeCodeAdd",
+		"ClaudeCodeTreeAdd",
+		"ClaudeCodeDiffAccept",
+		"ClaudeCodeDiffDeny",
+		"ClaudeCodeSelectModel",
+	},
 	config = true,
 	opts = {
 		terminal_cmd = "~/.local/bin/claude", -- Point to local installation
