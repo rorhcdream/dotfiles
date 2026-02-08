@@ -1,9 +1,13 @@
 return {
 	"coder/claudecode.nvim",
 	dependencies = { "folke/snacks.nvim" },
+	lazy = vim.env.CLAUDECODE_TERMINAL_PROVIDER == nil,
 	config = true,
 	opts = {
 		terminal_cmd = "~/.local/bin/claude", -- Point to local installation
+		terminal = {
+			provider = vim.env.CLAUDECODE_TERMINAL_PROVIDER or "auto",
+		},
 	},
 	keys = {
 		{ "<leader>a",  nil,                              desc = "AI/Claude Code" },
