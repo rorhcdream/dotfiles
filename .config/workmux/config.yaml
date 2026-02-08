@@ -1,0 +1,7 @@
+nerdfont: true
+panes:
+- command: nvim -c ClaudeCode
+  focus: true
+files:
+  symlink:
+    - .claude
