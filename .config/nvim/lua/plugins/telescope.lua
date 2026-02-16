@@ -9,7 +9,22 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local action_state = require("telescope.actions.state")
 		local builtin = require("telescope.builtin")
+
+		local show_ignored = false
+		local function toggle_ignored()
+			show_ignored = not show_ignored
+			local prompt = action_state.get_current_picker(vim.api.nvim_get_current_buf())
+			local current_input = prompt:_get_prompt()
+			local cmd = { "fd", "--type", "f", "--hidden", "--follow" }
+			if show_ignored then cmd[#cmd + 1] = "--no-ignore" end
+			builtin.find_files({
+				find_command = cmd,
+				prompt_title = show_ignored and "Find Files (incl. ignored)" or "Find Files",
+				default_text = current_input,
+			})
+		end
 
 		telescope.setup({
 			defaults = {
@@ -52,7 +67,12 @@ return {
 			},
 			pickers = {
 				find_files = {
-					find_command = { "rg", "--files", "--hidden", "--smart-case", "--no-ignore-vcs" },
+					find_command = { "fd", "--type", "f", "--hidden", "--follow" },
+					mappings = {
+						i = {
+							["<C-h>"] = toggle_ignored,
+						},
+					},
 				},
 			},
 		})
