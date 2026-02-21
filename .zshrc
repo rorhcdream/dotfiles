@@ -155,5 +155,6 @@ export PATH="$(go env GOPATH)/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
 
-# Set workmux alias
+# Workmux alias and completion
 alias wm='workmux'
+eval "$(workmux completions zsh)"
