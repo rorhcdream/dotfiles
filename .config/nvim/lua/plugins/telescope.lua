@@ -12,7 +12,7 @@ return {
 		local action_state = require("telescope.actions.state")
 		local builtin = require("telescope.builtin")
 
-		local show_ignored = false
+		local show_ignored = true
 		local function toggle_ignored()
 			show_ignored = not show_ignored
 			local prompt = action_state.get_current_picker(vim.api.nvim_get_current_buf())
@@ -67,7 +67,7 @@ return {
 			},
 			pickers = {
 				find_files = {
-					find_command = { "fd", "--type", "f", "--hidden", "--follow" },
+					find_command = { "fd", "--type", "f", "--hidden", "--follow", "--no-ignore" },
 					mappings = {
 						i = {
 							["<C-h>"] = toggle_ignored,
