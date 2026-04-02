@@ -131,9 +131,9 @@ return {
 			eslint = {},
 			ts_ls = {},
 			jsonls = {},
-			roslyn_ls = {
-				cmd = { "roslyn.cmd", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" },
-			},
+			-- roslyn_ls = {
+			-- 	cmd = { "roslyn.cmd", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" },
+			-- },
 			terraformls = {},
 		}
 
