@@ -1,7 +1,9 @@
 nerdfont: true
 panes:
-- command: nvim -c ClaudeCode
-  focus: true
+  - command: nvim
+  - command: <agent>
+    focus: true
+    split: horizontal
 files:
   symlink:
     - .claude
