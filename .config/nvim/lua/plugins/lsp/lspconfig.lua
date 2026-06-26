@@ -120,8 +120,17 @@ return {
 					},
 				},
 			},
-			gopls = {},
-			golangci_lint_ls = {},
+			gopls = {
+				staticcheck = false,
+				vulncheck = "Off",
+				analyses = {
+					unusedparams = false,
+					unusedwrite  = false,
+					shadow       = false,
+				},
+				directoryFilters = { "-**/node_modules", "-**/.git", "-**/vendor" },
+			},
+			-- golangci_lint_ls = {},
 			clangd = {
 				filetypes = { "c", "cpp" },
 			},
@@ -182,6 +191,21 @@ return {
 		-- 		new_config.init_options = get_init_options()
 		-- 	end,
 		-- })
+
+		-- Detach LSP from non-file buffers (diffview://, fugitive://, etc.).
+		-- Servers like gopls reject these URI schemes, which makes lsp_signature
+		-- spam "DocumentURI scheme is not 'file'" parse errors. We don't want
+		-- language features on read-only diff/git views anyway.
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(args)
+				local name = vim.api.nvim_buf_get_name(args.buf)
+				if name:match("^%w+://") and not name:match("^file://") then
+					vim.schedule(function()
+						vim.lsp.buf_detach_client(args.buf, args.data.client_id)
+					end)
+				end
+			end,
+		})
 
 		vim.api.nvim_create_autocmd("CursorHold", {
 			callback = function()
