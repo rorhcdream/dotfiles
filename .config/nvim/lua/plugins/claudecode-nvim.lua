@@ -1,5 +1,6 @@
 return {
 	"coder/claudecode.nvim",
+	enabled = false,
 	dependencies = { "folke/snacks.nvim" },
 	lazy = vim.env.CLAUDECODE_TERMINAL_PROVIDER == nil,
 	cmd = {
