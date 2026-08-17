@@ -1,5 +1,5 @@
 return {
-	dir = "~/personal/sidecar.nvim",
+	'rorhcdream/sidecar.nvim',
 	event = "VeryLazy",
 	cmd = { "Sidecar", "SidecarSwitch", "SidecarAdd", "SidecarPrompt", "SidecarPromptFile" },
 	opts = {
