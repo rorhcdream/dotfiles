@@ -10,7 +10,6 @@ files=(
     ".config/gh/config.yaml"
     ".config/nvim"
     ".config/lazygit"
-    ".config/workmux"
     ".golangci.yml"
 )
 

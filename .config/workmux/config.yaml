@@ -1,9 +1,0 @@
-nerdfont: true
-panes:
-  - command: nvim
-  - command: <agent>
-    focus: true
-    split: horizontal
-files:
-  symlink:
-    - .claude

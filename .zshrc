@@ -155,10 +155,6 @@ export PATH="$(go env GOPATH)/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
 
-# Workmux alias and completion
-alias wm='workmux'
-eval "$(workmux completions zsh)"
-
 # multi-repo-workspace: launch tasks inside Neovim (sidecar.nvim) by default
 export MRW_NVIM=1
 # multi-repo-workspace: launch Codex (not Claude Code) by default
