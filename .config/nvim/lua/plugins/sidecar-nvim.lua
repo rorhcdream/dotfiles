@@ -4,7 +4,7 @@ return {
 	cmd = { "Sidecar", "SidecarSwitch", "SidecarAdd", "SidecarPrompt", "SidecarPromptFile" },
 	opts = {
 		tools = {
-			claude = { cmd = "~/.local/bin/claude" },
+			claude = { cmd = "claude" },
 			codex = { cmd = "codex" },
 		},
 	},
