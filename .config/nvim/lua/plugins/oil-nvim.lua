@@ -26,6 +26,6 @@ return {
 			end
 		end
 
-		vim.keymap.set("n", "<leader>o", open_oil, { silent = true })
+		vim.keymap.set("n", "<leader>o", open_oil, { silent = true, desc = "Open Oil file explorer" })
 	end
 }
