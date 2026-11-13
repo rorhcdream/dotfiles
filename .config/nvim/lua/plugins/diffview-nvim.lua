@@ -1,6 +1,17 @@
 return {
 	"sindrets/diffview.nvim",
 	cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
+	init = function()
+		-- In diffview:// buffers, :e wipes the git-backed content. Reload changed
+		-- files from disk instead (DiffviewRefresh would reset the file selection).
+		vim.keymap.set("ca", "e", function()
+			if vim.fn.getcmdtype() == ":" and vim.fn.getcmdline() == "e"
+				and vim.api.nvim_buf_get_name(0):match("^diffview://") then
+				return "checktime"
+			end
+			return "e"
+		end, { expr = true })
+	end,
 	keys = {
 		{ "<leader>v",  nil,                      desc = "Diffview" },
 		{ "<leader>vo", "<cmd>DiffviewOpen<cr>",  desc = "Review current diff" },
