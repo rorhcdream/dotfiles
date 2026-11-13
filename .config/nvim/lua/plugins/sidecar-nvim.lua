@@ -5,7 +5,7 @@ return {
 	opts = {
 		tools = {
 			claude = { cmd = "claude" },
-			codex = { cmd = "codex" },
+			codex = { cmd = "codex -c check_for_update_on_startup=false" },
 		},
 	},
 }
